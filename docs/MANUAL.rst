@@ -2,7 +2,7 @@ NAME
 
 ::
 
-    NIXT - you have been nixt
+    NIXT - you have been nixt!
 
 
 SYNOPSIS
@@ -41,10 +41,12 @@ INSTALL
 
     $ pipx install nixt
     $ pipx ensurepath
-    $ nixt skl
+
     $ nixt srv > nixt.service
     $ sudo mv nixt.service /etc/systemd/system/
     $ systemctl enable nixt --now
+
+    joins #nixt on localhost
 
 
 COMMANDS
@@ -93,39 +95,6 @@ CONFIGURATION
     $ nixt imp <filename>
 
 
-SYSTEMD
-
-::
-
-    save the following it in /etc/systemd/system/rssbot.service and
-    replace "<user>" with the user running pipx
-
-
-    [Unit]
-    Description=you have been nixt!
-    Requires=network-online.target
-    After=network-online.target
-
-    [Service]
-    Type=simple
-    User=<user>
-    Group=<user>
-    WorkingDirectory=/home/<user>/.nixt
-    ExecStart=/home/<user>/.local/bin/nixtd
-    ExitType=cgroup
-    RemainAfterExit=yes
-
-    [Install]
-    WantedBy=default.target
-
-    then run this
-
-    $ mkdir ~/.nixt
-    $ sudo systemctl enable nixt --now
-
-    default channel/server is #nixt on localhost
-
-
 FILES
 
 ::
@@ -141,7 +110,7 @@ AUTHOR
 
 ::
 
-    xobejctz <objx@proton.me>
+    Bart Thate <rssbotd@gmail.com>
 
 
 COPYRIGHT

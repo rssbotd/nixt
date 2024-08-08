@@ -6,7 +6,7 @@ NAME
 
 ::
 
-    nixt - you have been nixt.
+    nixt - you have been nixt!
 
 
 SYNOPSIS
@@ -15,10 +15,12 @@ SYNOPSIS
 
     $ pipx install nixt
     $ pipx ensurepath
-    $ nixt skl
+
     $ nixt srv > nixt.service
     $ sudo mv nixt.service /etc/systemd/system/
     $ systemctl enable nixt --now
+
+    joins #nixt on localhost
 
 
 DESCRIPTION
@@ -47,7 +49,7 @@ AUTHOR
 
 ::
 
-    xobjectz <objx@proton.me>
+    Bart Thate <rssbotd@gmail.com>
 
 
 COPYRIGHT

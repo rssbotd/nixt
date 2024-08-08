@@ -47,7 +47,7 @@ zip-safe=true
 [tool.setuptools.data-files]
 "share/doc/nixt" = [
     "README.rst",
-    "MANUAL.rst"
+    "files/MANUAL.rst"
 ]
 
 
