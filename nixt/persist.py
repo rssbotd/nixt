@@ -20,7 +20,7 @@ from .utils   import fntime, strip
 
 class Persist(Object):
 
-    "Workdir"
+    "Persist"
 
     fqns = []
     workdir = ""

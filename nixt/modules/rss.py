@@ -23,7 +23,7 @@ from urllib.parse import quote_plus, urlencode
 from ..default  import Default
 from ..object   import Object, construct, fmt, update
 from ..persist  import find, last, sync
-from ..group    import OoL, append
+from ..group    import Group, append
 from ..repeater import Repeater
 from ..thread   import launch
 from ..log      import debug
@@ -70,13 +70,14 @@ class Rss(Default):
         self.rss          = ''
 
 
-class Urls(OoL):
+class Urls(Group):
 
     "Seen"
 
     def __init__(self):
-        OoL.__init__(self)
+        Group.__init__(self)
         self.nrlinks = Object()
+
 
 def append_url(obj, url, item):
     "urls add."
