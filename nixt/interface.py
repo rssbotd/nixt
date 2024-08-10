@@ -6,13 +6,18 @@
 "interface"
 
 
-from . import cache, client, cmds, errors, event, reactor
+import nixt
+
+
+from . import cache, client, cmds, decoder, encoder, errors, event, reactor
 from . import log, parse, persist, repeater, thread, timer, utils
 
 
 from .cache    import *
 from .client   import *
 from .cmds     import *
+from .decoder  import *
+from .encoder  import *
 from .errors   import *
 from .event    import *
 from .log      import *
