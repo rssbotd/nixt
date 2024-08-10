@@ -13,6 +13,9 @@ import unittest
 from nixt.interface import *
 
 
+import nixt
+
+
 PACKAGE = [
     '__builtins__',
     '__cached__',

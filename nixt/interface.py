@@ -1,12 +1,9 @@
 # This file is placed in the Public Domain.
-# pylint: disable=W0401,W0611,W0614,W0622
+# pylint: disable=W0401,W0611,W0622,W0614
 # ruff: noqa: F401,F403
 
 
 "interface"
-
-
-import nixt
 
 
 from . import cache, client, cmds, decoder, encoder, errors, event, reactor
