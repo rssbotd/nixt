@@ -21,13 +21,13 @@ from urllib.parse import quote_plus, urlencode
 
 
 from ..default  import Default
+from ..fleet    import Fleet
 from ..object   import Object, construct, fmt, update
 from ..persist  import find, last, sync
 from ..group    import Group, append
 from ..repeater import Repeater
 from ..thread   import launch
 from ..log      import debug
-from ..run      import fleet
 from ..utils    import fntime, laps, spl
 
 
@@ -44,10 +44,10 @@ DEBUG = False
 
 TEMPLATE = """<opml version="1.0">
     <head>
-        <title>rssbot opml</title>
+        <title>OPML</title>
     </head>
     <body>
-        <outline title="rssbot opml" text="24/7 feed fetcher">"""
+        <outline title="opml" text="rss feeds">"""
 
 
 
@@ -152,7 +152,7 @@ class Fetcher(Object):
             txt = f'[{feedname}] '
         for obj in result:
             txt2 = txt + self.display(obj)
-            fleet.announce(txt2.rstrip())
+            Fleet.announce(txt2.rstrip())
         return counter
 
     def run(self, silent=False):

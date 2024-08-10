@@ -25,8 +25,8 @@ from nixt import modules
 
 
 Cfg         = Config()
+Cfg.name    = Config.__module__.split(".")[-2]
 Cfg.mod     = "irc,rss"
-Cfg.name    = __file__.split(os.sep)[-2]
 Cfg.wdr     = os.path.expanduser(f"~/.{Cfg.name}")
 Cfg.user    = getpass.getuser()
 Cfg.pidfile = os.path.join(Cfg.wdr, f"{Cfg.name}.pid")

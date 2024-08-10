@@ -16,28 +16,32 @@ class Fleet(Object):
 
     bots = []
 
+    @staticmethod
     def all(self):
         "return all objects."
-        return self.bots
+        return Fleet.bots
 
-    def announce(self, txt):
+    @staticmethod
+    def announce(txt):
         "announce on all bots."
-        for bot in self.bots:
+        for bot in Fleet.bots:
             if "announce" in dir(bot):
                 bot.announce(txt)
 
-    def get(self, orig):
+    @staticmethod
+    def get(orig):
         "return bot."
         res = None
-        for bot in self.bots:
+        for bot in Fleet.bots:
             if rpr(bot) == orig:
                 res = bot
                 break
         return res
 
-    def register(self, obj):
+    @staticmethod
+    def register(obj):
         "add bot."
-        self.bots.append(obj)
+        Fleet.bots.append(obj)
 
 
 def __dir__():

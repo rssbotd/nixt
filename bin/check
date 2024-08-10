@@ -1,5 +1,5 @@
 grep -R nixt nixt
-grep -R "print(" nixt 
+grep -R "print(" nixt
 grep -R __import__ nixt 
 grep -R importlib nixt 
 grep -R sys nixt 
