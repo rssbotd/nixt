@@ -2,7 +2,7 @@ NAME
 
 ::
 
-    NIXT - you have been nixt
+    NIXT - you have been nixt.
 
 
 SYNOPSIS
@@ -10,7 +10,7 @@ SYNOPSIS
 ::
 
     nixt <cmd> [key=val] [key==val]
-    nixtc
+    nixtc [-a] [-i]
     nixtd
 
 

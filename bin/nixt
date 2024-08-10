@@ -89,8 +89,7 @@ def main():
     skel()
     enable(print)
     Cfg.dis = Cfg.sets.dis
-    if "a" in Cfg.opts:
-        Cfg.mod = ",".join(modnames(modules))
+    Cfg.mod = ",".join(modnames(modules))
     scan(Cfg.mod, modules)
     cmnd(Cfg.otxt, print)
 

@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nixt"
-description = "you have been nixt"
+description = "you have been nixt."
 version = "16"
 authors = [
     {name = "Bart Thate", email = "rssbotd@gmail.com"},
@@ -38,8 +38,7 @@ script-files = [
 ]
 packages = [
     'nixt',
-    'nixt.modules',
-    'nixt.user'
+    'nixt.modules'
 ]
 zip-safe=true
 
@@ -47,7 +46,6 @@ zip-safe=true
 [tool.setuptools.data-files]
 "share/doc/nixt" = [
     "README.rst",
-    "docs/MANUAL.rst"
 ]
 
 
