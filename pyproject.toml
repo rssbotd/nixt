@@ -11,7 +11,7 @@ name = "nixt"
 description = "you have been nixt"
 version = "16"
 authors = [
-    {name = "xobjectz", email = "objx@proton.me"},
+    {name = "Bart Thate", email = "rssbotd@gmail.com"},
 ]
 readme = "README.rst"
 license = {text="Public Domain"}
@@ -26,8 +26,8 @@ classifiers = [
 
 [project.urls]
 "home" = "https://pypi.org/project/nixt"
-"bugs" = "https://github.com/xobjectz/nixt/issues"
-"source" = "https://github.com/xobjectz/nixt"
+"bugs" = "https://github.com/rssbotd/nixt/issues"
+"source" = "https://github.com/rssbotd/nixt"
 
 
 [tool.setuptools]
@@ -47,7 +47,7 @@ zip-safe=true
 [tool.setuptools.data-files]
 "share/doc/nixt" = [
     "README.rst",
-    "files/MANUAL.rst"
+    "docs/MANUAL.rst"
 ]
 
 
