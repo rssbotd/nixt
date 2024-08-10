@@ -48,9 +48,11 @@ INSTALL
     $ pipx install nixt
     $ pipx ensurepath
 
+    <new terminal>
+
     $ nixt srv > nixt.service
     $ sudo mv nixt.service /etc/systemd/system/
-    $ systemctl enable nixt --now
+    $ sduo systemctl enable nixt --now
 
     joins #nixt on localhost
 
