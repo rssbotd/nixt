@@ -7,7 +7,7 @@
 
 
 from . import cache, client, cmds, decoder, encoder, errors, event, reactor
-from . import log, parse, persist, repeater, thread, timer, utils
+from . import log, object, parse, persist, repeater, thread, timer, utils
 
 
 from .cache    import *

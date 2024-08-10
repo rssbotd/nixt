@@ -8,12 +8,15 @@
 import datetime
 
 
-class Object:
+class Object(object):
 
     "Object"
 
     def __contains__(self, key):
         return key in dir(self)
+
+    def __getstate__(self):
+        "no pickle."
 
     def __iter__(self):
         return iter(self.__dict__)
