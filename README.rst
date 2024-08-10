@@ -1,26 +1,17 @@
-README
-######
-
-
 NAME
 
 ::
 
-    ``nixt`` - you have been nixt
+    NIXT - you have been nixt
 
 
 SYNOPSIS
 
 ::
 
-    $ pipx install nixt
-    $ pipx ensurepath
-
-    $ nixt srv > nixt.service
-    $ sudo mv nixt.service /etc/systemd/system/
-    $ systemctl enable nixt --now
-
-    joins #nixt on localhost
+    nixt <cmd> [key=val] [key==val]
+    nixtc
+    nixtd
 
 
 DESCRIPTION
@@ -43,6 +34,82 @@ DESCRIPTION
     client/server connection, code to introspect modules for
     commands, deferred exception handling to not crash on an error, a
     parser to parse commandline options and values, etc.
+
+    NIXT has a demo bot, it can connect to IRC, fetch and display RSS
+    feeds, take todo notes, keep a shopping list and log text. You can
+    also copy/paste the service file and run it under systemd for 24/7
+    presence in a IRC channel.
+
+
+INSTALL
+
+::
+
+    $ pipx install nixt
+    $ pipx ensurepath
+
+    $ nixt srv > nixt.service
+    $ sudo mv nixt.service /etc/systemd/system/
+    $ systemctl enable nixt --now
+
+    joins #nixt on localhost
+
+
+COMMANDS
+
+::
+
+    cfg - irc configuration
+    cmd - commands
+    dpl - sets display items
+    exp - export opml (stdout)
+    imp - import opml
+    mre - displays cached output
+    pwd - sasl nickserv name/pass
+    rem - removes a rss feed
+    res - restore deleted objects
+    rss - add a feed
+    syn - sync rss feeds
+
+
+CONFIGURATION
+
+::
+
+    irc
+
+    $ nixt cfg server=<server>
+    $ nixt cfg channel=<channel>
+    $ nixt cfg nick=<nick>
+
+    sasl
+ 
+    $ nixt pwd <nsvnick> <nspass>
+    $ nixt cfg password=<frompwd>
+
+    rss
+
+    $ nixt rss <url>
+    $ nixt dpl <url> <item1,item2>
+    $ nixt rem <url>
+    $ nixt res <url>
+    $ nixt nme <url> <name>
+
+    opml
+
+    $ nixt exp
+    $ nixt imp <filename>
+
+
+FILES
+
+::
+
+    ~/.nixt
+    ~/.local/bin/nixt
+    ~/.local/bin/nixtc
+    ~/.local/bin/nixtd
+    ~/.local/pipx/venvs/nixt/
 
 
 AUTHOR
