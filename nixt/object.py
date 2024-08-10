@@ -8,7 +8,7 @@
 import datetime
 
 
-class Object(object):
+class Object:
 
     "Object"
 

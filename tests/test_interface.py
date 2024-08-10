@@ -117,7 +117,7 @@ class TestInterface(unittest.TestCase): # pylint: disable=R0903
         self.assertTrue(okd)
 
 
-    def test_object(self):
+    def test_objects(self):
         "test methods interface."
         okd = True
         obj = Object()
