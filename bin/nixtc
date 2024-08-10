@@ -24,7 +24,7 @@ from nixt.parse   import parse
 from nixt.utils   import forever, modnames
 
 
-from nixt import modules, user
+from nixt import modules
 
 
 if os.path.exists("mods"):
@@ -65,14 +65,14 @@ def main():
     parse(Cfg, " ".join(sys.argv[1:]))
     Cfg.dis = Cfg.sets.dis
     if "a" in Cfg.opts:
-        Cfg.mod += ",".join(modnames(modules, user, MODS))
+        Cfg.mod += ",".join(modnames(modules, MODS))
     readline.redisplay()
     enable(print)
     skel()
-    scan(Cfg.mod, modules, user, MODS)
+    scan(Cfg.mod, modules, MODS)
     csl = Console(print, input)
     if "i" in Cfg.opts:
-        init(Cfg.mod, modules, user, MODS)
+        init(Cfg.mod, modules,MODS)
     csl.start()
     cmnd(Cfg.otxt, print)
     forever()

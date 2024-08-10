@@ -21,7 +21,7 @@ from nixt.main    import init, scan
 from nixt.utils   import forever, pidfile, privileges
 
 
-from nixt import modules, user
+from nixt import modules
 
 
 Cfg         = Config()
@@ -78,8 +78,8 @@ def main():
     privileges(Cfg.user)
     skel()
     pidfile(Cfg.pidfile)
-    scan(Cfg.mod, modules, user)
-    init(Cfg.mod, modules, user)
+    scan(Cfg.mod, modules)
+    init(Cfg.mod, modules)
     forever()
 
 

@@ -23,7 +23,7 @@ from nixt.parse   import parse
 from nixt.utils   import modnames
 
 
-from nixt import modules, user
+from nixt import modules
 
 
 Cfg         = Config()
@@ -90,8 +90,8 @@ def main():
     enable(print)
     Cfg.dis = Cfg.sets.dis
     if "a" in Cfg.opts:
-        Cfg.mod = ",".join(modnames(modules, user))
-    scan(Cfg.mod, modules, user)
+        Cfg.mod = ",".join(modnames(modules))
+    scan(Cfg.mod, modules)
     cmnd(Cfg.otxt, print)
 
 

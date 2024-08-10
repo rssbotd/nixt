@@ -23,11 +23,10 @@ from nixt.interface import *
 
 
 from nixt import modules
-from nixt import user
 
 
-if os.path.exists("mods"):
-    import mods
+if os.path.exists("files"):
+    import files as mods
 else:
     mods = None
 
@@ -143,11 +142,11 @@ def main():
     "main"
     enable(print)
     Cfg.dis = Cfg.sets.dis
-    Cfg.mod = ",".join(modnames(modules, user, mods))
+    Cfg.mod = ",".join(modnames(modules, mods))
     if "v" in Cfg.opts:
         dte = " ".join(time.ctime(time.time()).replace("  ", " ").split()[1:])
         print(f'{dte} {Cfg.name.upper()} {Cfg.opts.upper()} {Cfg.mod.upper()}'.replace("  ", " "))
-    scan(Cfg.mod, modules, user, mods)
+    scan(Cfg.mod, modules, mods)
     nrs = Cfg.index or 1
     nrcommand = len(Commands.cmds) or 1
     clt = CLI()
