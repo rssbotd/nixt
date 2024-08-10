@@ -10,8 +10,8 @@ import re
 import time as ttime
 
 
+from nixt.fleet   import Fleet
 from nixt.persist import find, sync
-from nixt.run     import fleet
 from nixt.thread  import launch
 from nixt.timer   import Timer
 from nixt.utils   import laps
@@ -22,7 +22,7 @@ def init():
     for _fnm, obj in find("timer"):
         diff = float(obj.time) - ttime.time()
         if diff > 0:
-            timer = Timer(diff, fleet.announce, obj.rest)
+            timer = Timer(diff, Fleet.announce, obj.rest)
             launch(timer.start)
 
 
@@ -214,7 +214,7 @@ def tmr(event):
         return res
     diff = target - ttime.time()
     event.reply("ok " +  laps(diff))
-    timer = Timer(diff, fleet.announce, event.rest, thrname=event.cmd)
+    timer = Timer(diff, Fleet.announce, event.rest, thrname=event.cmd)
     timer.time = target
     timer.rest = event.rest
     sync(timer)

@@ -17,7 +17,7 @@ class Fleet(Object):
     bots = []
 
     @staticmethod
-    def all(self):
+    def all():
         "return all objects."
         return Fleet.bots
 

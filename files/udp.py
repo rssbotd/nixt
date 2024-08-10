@@ -12,9 +12,9 @@ import threading
 import time
 
 
+from nixt.fleet  import Fleet
 from nixt.log    import debug
 from nixt.object import Object, fmt
-from nixt.run    import fleet
 from nixt.thread import launch
 
 
@@ -47,7 +47,7 @@ class UDP(Object):
     def output(self, txt, addr=None):
         if addr:
             Cfg.addr = addr
-        fleet.announce(txt.replace("\00", ""))
+        Fleet.announce(txt.replace("\00", ""))
 
     def loop(self):
         try:
