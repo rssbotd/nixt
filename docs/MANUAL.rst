@@ -2,7 +2,7 @@ NAME
 
 ::
 
-    NIXT - you have been nixt!
+    NIXT - you have been nixt
 
 
 SYNOPSIS

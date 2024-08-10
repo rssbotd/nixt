@@ -8,8 +8,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nixt"
-description = "you have been nixt!"
-version = "15"
+description = "you have been nixt"
+version = "16"
 authors = [
     {name = "xobjectz", email = "objx@proton.me"},
 ]

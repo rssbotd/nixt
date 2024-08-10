@@ -6,7 +6,7 @@ NAME
 
 ::
 
-    ``nixt`` - you have been nixt!
+    ``nixt`` - you have been nixt
 
 
 SYNOPSIS
