@@ -1,5 +1,5 @@
 # This file is placed in the Public Domain.
-# pylint: disable=R0903,W0105
+# pylint: disable=R0903
 
 
 "persistence"
@@ -141,9 +141,6 @@ def types():
 def whitelist(clz):
     "whitelist classes."
     Persist.fqns.append(fqn(clz))
-
-
-"interface"
 
 
 def __dir__():
