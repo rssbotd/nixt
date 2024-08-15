@@ -57,6 +57,37 @@ INSTALL
     joins #nixt on localhost
 
 
+USAGE
+
+
+::
+
+    without any argument the bot does nothing
+
+    $ nixt
+    $
+
+    see list of commands
+
+    $ nixt cmd
+    cmd,dne,err,log,mod,req,tdo,thr,tmr
+
+    start a console::
+
+    $ nixtc
+    >
+
+    use -i to run init on modules::
+
+    $ nixtc -i
+    >
+
+    start daemon::
+
+    $ nixtd
+    $
+
+
 COMMANDS
 
 ::
