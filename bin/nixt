@@ -27,7 +27,7 @@ from nixt import modules
 
 
 Cfg         = Config()
-Cfg.name    = __file__.rsplit(os.sep, maxsplit=1)[-1]
+Cfg.name    = Config.__module__.rsplit(".", maxsplit=1)[-2]
 Cfg.user    = getpass.getuser()
 Cfg.mod     = "cmd,skl,req,srv"
 Cfg.wdr     = os.path.expanduser(f"~/.{Cfg.name}")
