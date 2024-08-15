@@ -36,9 +36,6 @@ class Persist(Object):
             whitelist(clz)
 
 
-"methods"
-
-
 def fetch(obj, pth):
     "read object from disk."
     with disklock:
@@ -71,9 +68,6 @@ def sync(obj, pth=None):
         pth2 = store(pth)
         write(obj, pth2)
         return pth
-
-
-"utilities"
 
 
 def fns(mtc=""):
