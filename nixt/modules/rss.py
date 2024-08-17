@@ -84,7 +84,7 @@ def append_url(obj, url, item):
     links = getattr(obj, url, None)
     if links:
         nrs = getattr(obj.nrlinks, url, None)
-        if nrs and len(links) > nrs:
+        if nrs and len(links) >= nrs:
             links.pop(0)
     append(obj, url, item)
 
