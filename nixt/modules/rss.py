@@ -50,8 +50,8 @@ TEMPLATE = """<opml version="1.0">
         <outline title="opml" text="rss feeds">"""
 
 
-
-fetchlock = _thread.allocate_lock()
+appendlock = _thread.allocate_lock()
+fetchlock  = _thread.allocate_lock()
 
 
 class Feed(Default):
@@ -81,13 +81,14 @@ class Urls(Group):
 
 def append_url(obj, url, item):
     "urls add."
-    append(obj, url, item)
-    links = getattr(obj, url, None)
-    if links:
-        nrz = len(links)
-        nrs = getattr(obj.nrlinks, url, None)
-        if nrs and nrz > nrs:
-            links.pop(0)
+    with appendlock:
+        append(obj, url, item)
+        links = getattr(obj, url, None)
+        if links:
+            nrz = len(links)
+            nrs = getattr(obj.nrlinks, url, None)
+            if nrs and nrz > nrs:
+                links.pop(0)
 
 
 class Fetcher(Object):
