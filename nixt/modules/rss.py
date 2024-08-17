@@ -81,12 +81,13 @@ class Urls(Group):
 
 def append_url(obj, url, item):
     "urls add."
+    append(obj, url, item)
     links = getattr(obj, url, None)
     if links:
+        nrz = len(links)
         nrs = getattr(obj.nrlinks, url, None)
-        if nrs and len(links) >= nrs:
+        if nrs and nrz > nrs:
             links.pop(0)
-    append(obj, url, item)
 
 
 class Fetcher(Object):
