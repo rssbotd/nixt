@@ -125,8 +125,10 @@ class Fetcher(Object):
     def fetch(self, feed, silent=False):
         "fetch feed."
         with fetchlock:
-            counter = 0
             result = []
+            seen = getattr(self.seen, feed.rss, [])
+            urls = []
+            counter = 0
             for obj in reversed(getfeed(feed.rss, feed.display_list)):
                 counter += 1
                 fed = Feed()
@@ -137,15 +139,14 @@ class Fetcher(Object):
                     uurl = f'{url.scheme}://{url.netloc}/{url.path}'
                 else:
                     uurl = fed.link
-                if uurl in getattr(self.seen, feed.rss, []):
+                urls.append(uurl)
+                if uurl in seen:
                     continue
-                append_url(self.seen, feed.rss, uurl)
                 if self.dosave:
                     sync(fed)
                 result.append(fed)
-            if counter > getattr(self.seen.nrlinks, feed.rss, 0):
-                setattr(self.seen.nrlinks, feed.rss, counter)
-        self.seenfn = sync(self.seen, self.seenfn)
+            setattr(self.seen, feed.rss, urls)
+            self.seenfn = sync(self.seen, self.seenfn)
         if silent:
             return counter
         txt = ''
