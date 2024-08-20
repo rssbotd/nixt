@@ -1,0 +1,1 @@
+ruff check nixt/*.py nixt/modules/*.py tests/*.py examples/*.py
