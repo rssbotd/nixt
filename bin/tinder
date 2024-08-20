@@ -162,7 +162,6 @@ def main():
     endtime = time.time()
     lap = laps(endtime-STARTTIME)
     percall = (endtime-STARTTIME)/(nrs*nrcommand)
-    errors()
     if "v" in Cfg.opts:
         print(f"{lap} {nrs} {nrcommand} {percall}")
 
@@ -177,4 +176,5 @@ if __name__ == "__main__":
         profile.runctx(main.__code__, globals(), locals())
     else:
         wrap(main)
+    errors()
     sys.exit()

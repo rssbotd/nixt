@@ -58,7 +58,6 @@ class Thread(threading.Thread):
             for arg in args:
                 if isinstance(arg, Event):
                     arg.ready()
-            time.sleep(0.001)
 
 
 def launch(func, *args, **kwargs):

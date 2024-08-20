@@ -7,6 +7,7 @@
 
 import queue
 import threading
+import time
 import _thread
 
 
@@ -22,6 +23,7 @@ class Reactor:
         self.cbs      = Object()
         self.queue    = queue.Queue()
         self.stopped  = threading.Event()
+        self.throttle = 0
 
     def callback(self, evt):
         "call callback based on event type."
@@ -34,6 +36,8 @@ class Reactor:
             evt.ready()
             return
         evt._thr = launch(func, self, evt)
+        if self.throttle:
+            time.sleep(self.throttle)
 
     def loop(self):
         "proces events until interrupted."
