@@ -2,7 +2,7 @@
 # pylint: disable=C0411,C0413,W0212,W0718,E0401
 
 
-"main"
+"daemon"
 
 
 import os

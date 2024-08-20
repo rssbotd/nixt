@@ -1,7 +1,7 @@
 # This file is placed in the Public Domain.
 
 
-"list of bots."
+"list of bots"
 
 
 from .object import Object

@@ -2,7 +2,7 @@
 # pylint: disable=C0413,W0212,W0613,W0718,E0401
 
 
-"main"
+"cli"
 
 
 import getpass

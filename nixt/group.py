@@ -2,7 +2,7 @@
 # pylint: disable=R0903
 
 
-"collections"
+"collection"
 
 
 from .object import Object
