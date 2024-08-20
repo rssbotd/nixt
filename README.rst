@@ -52,7 +52,7 @@ INSTALL
 
     $ nixt srv > nixt.service
     $ sudo mv nixt.service /etc/systemd/system/
-    $ sduo systemctl enable nixt --now
+    $ sudo systemctl enable nixt --now
 
     joins #nixt on localhost
 
@@ -70,19 +70,19 @@ USAGE
     see list of commands
 
     $ nixt cmd
-    cmd,dne,err,log,mod,req,tdo,thr,tmr
+    cfg,cmd,dne,dpl,err,exp,imp,log,mod,mre,nme,pwd,rem,res,rss,srv,syn,tdo,thr,upt
 
-    start a console::
+    start a console
 
     $ nixtc
     >
 
-    use -i to run init on modules::
+    use -i to run init on modules
 
     $ nixtc -i
     >
 
-    start daemon::
+    start daemon
 
     $ nixtd
     $
@@ -94,15 +94,24 @@ COMMANDS
 
     cfg - irc configuration
     cmd - commands
+    sne - flag a todo item as done
     dpl - sets display items
+    err - show errors
     exp - export opml (stdout)
     imp - import opml
+    log - log text
+    mod - show modules
     mre - displays cached output
+    nme - give rss feed a name
     pwd - sasl nickserv name/pass
     rem - removes a rss feed
     res - restore deleted objects
     rss - add a feed
+    srv - create service file
     syn - sync rss feeds
+    tdo - add todo item
+    thr - show running threads
+    upt - show uptime
 
 
 CONFIGURATION
@@ -123,10 +132,10 @@ CONFIGURATION
     rss
 
     $ nixt rss <url>
-    $ nixt dpl <url> <item1,item2>
-    $ nixt rem <url>
-    $ nixt res <url>
-    $ nixt nme <url> <name>
+    $ nixt dpl <urlmatch> <item1,item2>
+    $ nixt rem <urlmatch>
+    $ nixt res <urlmatch>
+    $ nixt nme <urlmatch> <name>
 
     opml
 
