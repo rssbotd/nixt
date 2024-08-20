@@ -8,11 +8,9 @@ import threading
 import time
 
 
-from ..object import Object, update
-from ..utils  import laps
-
-
-STARTTIME = time.time()
+from ..object  import Object, update
+from ..runtime import STARTTIME
+from ..utils   import laps
 
 
 def thr(event):

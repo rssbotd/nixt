@@ -7,10 +7,8 @@
 import time
 
 
-from ..utils import laps
-
-
-STARTTIME = time.time()
+from ..runtime import STARTTIME
+from ..utils   import laps
 
 
 def upt(event):

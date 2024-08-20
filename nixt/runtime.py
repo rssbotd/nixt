@@ -6,10 +6,14 @@
 
 import getpass
 import os
+import time
 
 
-from .config import Config
+from .config  import Config
 from .persist import Persist
+
+
+STARTTIME   = time.time()
 
 
 Cfg         = Config()
