@@ -9,7 +9,7 @@ SYNOPSIS
 
 ::
 
-    nixt <cmd> [key=val] [key==val]
+    nixt  <cmd> [key=val] [key==val]
     nixtc [-a] [-i]
     nixtd
 
