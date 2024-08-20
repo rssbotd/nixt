@@ -35,6 +35,7 @@ classifiers = [
 "source" = "https://github.com/rssbotd/nixt"
 
 
+[tools.setuptools]
 packages = [
     'nixt',
     'nixt.modules'
