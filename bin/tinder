@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # This file is placed in the Public Domain.
-
+# pylint: disable=C,I,R,W
 
 "tinder"
 
@@ -39,7 +39,7 @@ from nixt import mod
 
 
 if os.path.exists("mods"):
-    import files as mods
+    import files as mods # pylint: disable=E0401
 else:
     mods = None
 
