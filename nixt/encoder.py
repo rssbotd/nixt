@@ -7,7 +7,7 @@
 import json
 
 
-from .lock  import lock
+from .lock   import lock
 from .object import Object
 from .utils  import cdir
 

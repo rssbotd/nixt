@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # This file is placed in the Public Domain.
+#
 # pylint: disable=C0103,C0413,W0201,W0401,W0614,W0622,E0401
-# ruff: noqa: F403,F405
 
 
 "tinder"
@@ -19,14 +19,14 @@ import _thread
 sys.path.insert(0, os.getcwd())
 
 
-from nixt.interface import *
+from nixt.face import *
 
 
 from nixt import modules
 
 
-if os.path.exists("examples"):
-    import examples as mods
+if os.path.exists("files"):
+    import files as mods
 else:
     mods = None
 
@@ -122,7 +122,7 @@ def payload(clt):
 payload.threaded = True
 
 
-def wrap(function):
+def wrap(function): # pylint: disable=E0102
     "reset terminal."
     old2 = None
     try:
@@ -162,6 +162,7 @@ def main():
     endtime = time.time()
     lap = laps(endtime-STARTTIME)
     percall = (endtime-STARTTIME)/(nrs*nrcommand)
+    errors()
     if "v" in Cfg.opts:
         print(f"{lap} {nrs} {nrcommand} {percall}")
 
@@ -176,5 +177,4 @@ if __name__ == "__main__":
         profile.runctx(main.__code__, globals(), locals())
     else:
         wrap(main)
-    errors()
     sys.exit()

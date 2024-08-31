@@ -11,7 +11,7 @@ import sys
 import unittest
 
 
-from nixt.interface import *
+from nixt.face import *
 
 
 import nixt
@@ -27,7 +27,6 @@ PACKAGE = [
     '__package__',
     '__path__',
     '__spec__',
-    'cache',
     'client',
     'cmds',
     'decoder',
@@ -35,7 +34,7 @@ PACKAGE = [
     'encoder',
     'errors',
     'event',
-    'interface',
+    'face',
     'lock',
     'log',
     'main',

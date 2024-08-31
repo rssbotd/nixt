@@ -8,16 +8,14 @@ import threading
 
 
 from .default import Default
-from .object  import Object
 
 
-class Event(Default, Object): # pylint: disable=R0902
+class Event(Default): # pylint: disable=R0902
 
     "Event"
 
     def __init__(self):
         Default.__init__(self)
-        Object.__init__(self)
         self._ready  = threading.Event()
         self._thr    = None
         self.orig    = ""
