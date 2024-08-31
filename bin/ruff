@@ -1,1 +1,2 @@
-ruff check nixt/*.py nixt/modules/*.py tests/*.py examples/*.py
+ruff check nixt/mod/*.py nixt/lib/*.py nixt/mod/*.py tests/*.py
+
