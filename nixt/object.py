@@ -137,11 +137,6 @@ def values(obj):
     return obj.__dict__.values()
 
 
-def pjoin(*args):
-    "path join."
-    return "/".join(args)
-
-
 def __dir__():
     return (
         'Object',

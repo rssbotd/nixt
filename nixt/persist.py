@@ -1,5 +1,4 @@
 # This file is placed in the Public Domain.
-# pylint: disable=R0903
 
 
 "persistence"
@@ -18,7 +17,7 @@ from .lock    import disklock
 from .utils   import fntime, fqn, ident, strip
 
 
-class Persist(Object):
+class Persist(Object): # pylint: disable=R0903
 
     "Persist"
 

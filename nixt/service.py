@@ -24,6 +24,7 @@ def wrapped():
 
 initer = init
 
+
 def main():
     "main"
     Cfg.mod += ",irc,rss"

@@ -1,5 +1,4 @@
 # This file is placed in the Public Domain.
-# pylint: disable=C0411,C0413,W0212,E0401
 
 
 "prompt"
@@ -24,7 +23,7 @@ from . import modules
 
 
 if os.path.exists("mods"):
-    import mods as MODS
+    import mods as MODS # pylint: disable=E0401
 else:
     MODS = None
 

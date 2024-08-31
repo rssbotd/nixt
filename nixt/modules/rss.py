@@ -1,5 +1,4 @@
 # This file is placed in the Public Domain.
-# pylint: disable=R0903,W0105
 
 
 "rich site syndicate"
@@ -52,12 +51,12 @@ TEMPLATE = """<opml version="1.0">
 fetchlock  = _thread.allocate_lock()
 
 
-class Feed(Default):
+class Feed(Default): # pylint: disable=R0903
 
     "Feed"
 
 
-class Rss(Default):
+class Rss(Default): # pylint: disable=R0903
 
     "Rss"
 
@@ -68,7 +67,7 @@ class Rss(Default):
         self.rss          = ''
 
 
-class Urls(Default):
+class Urls(Default): # pylint: disable=R0903
 
     "Seen"
 

@@ -14,7 +14,7 @@ from ..utils   import laps
 
 
 def thr(event):
-    "show running threads."
+    "list threads."
     result = []
     for thread in sorted(threading.enumerate(), key=lambda x: x.name):
         if str(thread).startswith('<_'):

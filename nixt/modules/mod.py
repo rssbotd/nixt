@@ -8,7 +8,7 @@ import os
 
 
 def mod(event):
-    "show available modules."
+    "list modules."
     path = os.path.dirname(__file__)
     mods = []
     for mdd in os.listdir(path):
