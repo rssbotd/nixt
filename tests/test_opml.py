@@ -8,7 +8,7 @@
 import unittest
 
 
-from nixt.modules.rss import OPMLParser
+from nixt.mod.rss import OPMLParser
 
 
 TXT = """<opml version="1.0">

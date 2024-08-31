@@ -8,8 +8,8 @@
 import unittest
 
 
-from nixt.object import Object, fmt, items, keys, update, values
-from nixt.utils  import fqn
+from nixt.lib.object import Object, fmt, items, keys, update, values
+from nixt.lib.utils  import fqn
 
 
 VALIDJSON = '{"test": "bla"}'
@@ -139,11 +139,11 @@ class TestObject(unittest.TestCase):
 
     def test_module(self):
         "test module name."
-        self.assertEqual(Object().__module__, "nixt.object")
+        self.assertEqual(Object().__module__, "nixt.lib.object")
 
     def test_fqn(self):
         "test full qualified domain name."
-        self.assertEqual(fqn(Object()), "nixt.object.Object")
+        self.assertEqual(fqn(Object()), "nixt.lib.object.Object")
 
     def test_repr(self):
         "test representation."

@@ -17,8 +17,8 @@ from . import modules
 
 cfg         = Config()
 cfg.name    = Config.__module__.rsplit(".", maxsplit=3)[-3]
-cfg.mod     = "cmd,err,mod,skl,srv,thr"
 cfg.wdr     = os.path.expanduser(f"~/.{cfg.name}")
+cfg.mod     = "cmd,err,mod,skl,srv,thr"
 cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
 
 

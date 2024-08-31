@@ -11,10 +11,10 @@ import sys
 import unittest
 
 
-from nixt.face import *
+from nixt.lib.face import *
 
 
-import nixt
+import nixt.lib
 
 
 PACKAGE = [
@@ -28,7 +28,7 @@ PACKAGE = [
     '__path__',
     '__spec__',
     'client',
-    'cmds',
+    'command',
     'decoder',
     'default',
     'encoder',
@@ -93,7 +93,7 @@ DIFF = [
 ]
 
 
-OBJECT = nixt
+OBJECT = nixt.lib
 
 
 class TestInterface(unittest.TestCase): # pylint: disable=R0903

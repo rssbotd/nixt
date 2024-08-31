@@ -24,9 +24,9 @@ from nixt import mod
 
 cfg         = Config()
 cfg.name    = Config.__module__.rsplit(".", maxsplit=3)[-3]
-cfg.mod     = "cmd,err,mod,skl,srv,thr"
 cfg.wdr     = os.path.expanduser(f"~/.{cfg.name}")
 cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
+cfg.mod     = "cmd,err,mod,skl,srv,thr"
 
 
 Persist.workdir = cfg.wdr
