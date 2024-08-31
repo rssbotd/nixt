@@ -24,7 +24,6 @@ from ..default  import Default
 from ..fleet    import Fleet
 from ..object   import Object, construct, fmt, update
 from ..persist  import find, last, sync
-from ..group    import Group
 from ..repeater import Repeater
 from ..thread   import launch
 from ..log      import debug
@@ -35,7 +34,7 @@ def init():
     "start fetcher."
     fetcher = Fetcher()
     fetcher.start()
-    debug(f'started rss {fmt(fetcher,skip="seen")}')
+    debug(f'started rss {fmt(fetcher,skip="seen,seenfn")}')
     return fetcher
 
 
@@ -69,7 +68,7 @@ class Rss(Default):
         self.rss          = ''
 
 
-class Urls(Group):
+class Urls(Default):
 
     "Seen"
 

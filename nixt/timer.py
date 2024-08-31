@@ -1,5 +1,4 @@
 # This file is placed in the Public Domain.
-# pylint: disable=R0902
 
 
 "at a specific time"
@@ -14,11 +13,12 @@ from .thread import launch
 from .utils  import named
 
 
-class Timer(Object):
+class Timer(Object): # pylint: disable=R0902
 
     "Timer"
 
     def __init__(self, sleep, func, *args, thrname=None):
+        Object.__init__(self)
         self.args  = args
         self.func  = func
         self.sleep = sleep

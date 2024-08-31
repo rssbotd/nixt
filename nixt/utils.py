@@ -1,19 +1,16 @@
 # This file is placed in the Public Domain.
-# pylint: disable=R0911,C0415,W0212,E0401
 
 
 "utilities"
 
 
+import datetime
 import os
 import pathlib
 import pwd
 import time
 import types as rtypes
 import _thread
-
-
-SEP = "/"
 
 
 def cdir(pth):
@@ -25,7 +22,7 @@ def cdir(pth):
 def fntime(daystr):
     "convert file name to it's saved time."
     daystr = daystr.replace('_', ':')
-    datestr = ' '.join(daystr.split(SEP)[-2:])
+    datestr = ' '.join(daystr.split(os.sep)[-2:])
     if '.' in datestr:
         datestr, rest = datestr.rsplit('.', 1)
     else:
@@ -43,6 +40,19 @@ def forever():
             time.sleep(1.0)
         except (KeyboardInterrupt, EOFError):
             _thread.interrupt_main()
+
+
+def fqn(obj):
+    "return full qualified name of an object."
+    kin = str(type(obj)).split()[-1][1:-2]
+    if kin == "type":
+        kin = f"{obj.__module__}.{obj.__name__}"
+    return kin
+
+
+def ident(obj):
+    "return an id for an object."
+    return os.path.join(fqn(obj), *str(datetime.datetime.now()).split())
 
 
 def laps(seconds, short=True):
@@ -93,7 +103,7 @@ def modnames(*args):
     return sorted(res)
 
 
-def named(obj):
+def named(obj): # pylint: disable=R0911
     "return a full qualified name of an object/function/module."
     if isinstance(obj, rtypes.ModuleType):
         return obj.__name__
@@ -147,7 +157,7 @@ def spl(txt):
 
 def strip(pth, nmr=3):
     "reduce to path with directory."
-    return SEP.join(pth.split(SEP)[-nmr:])
+    return os.sep.join(pth.split(os.sep)[-nmr:])
 
 
 def __dir__():
@@ -155,6 +165,8 @@ def __dir__():
         'cdir',
         'fntime',
         'forever',
+        'fqn',
+        'ident',
         'laps',
         'modnames',
         'named',
