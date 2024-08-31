@@ -7,7 +7,7 @@
 import unittest
 
 
-from nixt.lib.object import Object
+from nixt.object import Object
 
 
 class Mix: # pylint: disable=R0903

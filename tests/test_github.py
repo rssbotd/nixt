@@ -8,7 +8,7 @@
 import unittest
 
 
-from nixt.mod.rss import Parser
+from nixt.modules.rss import Parser
 
 
 class TestAtom(unittest.TestCase):

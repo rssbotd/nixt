@@ -7,7 +7,7 @@
 import time
 
 
-from nixt.lib.utils   import laps
+from ..utils   import laps
 
 
 STARTTIME = time.time()

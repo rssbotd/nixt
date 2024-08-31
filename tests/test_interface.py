@@ -11,10 +11,10 @@ import sys
 import unittest
 
 
-from nixt.lib.face import *
+from nixt.face import *
 
 
-import nixt.lib
+import nixt
 
 
 PACKAGE = [
@@ -93,7 +93,7 @@ DIFF = [
 ]
 
 
-OBJECT = nixt.lib
+OBJECT = nixt
 
 
 class TestInterface(unittest.TestCase): # pylint: disable=R0903

@@ -17,7 +17,7 @@ import _thread
 sys.path.insert(0, os.getcwd())
 
 
-from nixt.lib.face import *
+from nixt.face import *
 
 
 cfg         = Config()
@@ -35,16 +35,16 @@ cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
 Persist.workdir = cfg.wdr
 
 
-from nixt import mod
+from nixt import modules
 
 
 if os.path.exists("mods"):
-    import files as mods # pylint: disable=E0401
+    import mods as MODS # pylint: disable=E0401
 else:
     mods = None
 
 
-mod.rss.DEBUG = True
+modules.rss.DEBUG = True
 
 
 LAP = 1
@@ -143,8 +143,8 @@ def main():
     "main"
     enable(print)
     cfg.dis = cfg.sets.dis
-    cfg.mod = ",".join(modnames(mod, mods))
-    scan(cfg.mod, mod, mods)
+    cfg.mod = ",".join(modnames(modules, MODS))
+    scan(cfg.mod, modules, MODS)
     clt = CLI()
     clt.start()
     clt.threaded = "t" in cfg.opts

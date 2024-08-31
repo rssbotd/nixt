@@ -7,7 +7,7 @@
 import unittest
 
 
-from nixt.lib.object import Object
+from nixt.object import Object
 
 
 class TestComposite(unittest.TestCase):

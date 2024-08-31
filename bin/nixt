@@ -1,1 +1,85 @@
-python3 -m nixt $* ;
+#!/usr/bin/env python3
+# This file is placed in the Public Domain.
+
+
+"cli"
+
+
+import os
+import sys
+
+
+from nixt.command import Commands
+from nixt.config  import Config
+from nixt.errors  import errors
+from nixt.main    import cmnd, enable, scan, wrap
+from nixt.parse   import parse
+from nixt.persist import Persist, skel
+from nixt.utils   import modnames
+
+
+cfg         = Config()
+cfg.name    = Config.__module__.rsplit(".", maxsplit=3)[-3]
+cfg.mod     = "cmd,err,mod,skl,srv,thr"
+cfg.wdr     = os.path.expanduser(f"~/.{cfg.name}")
+cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
+
+
+Persist.workdir = cfg.wdr
+
+
+from nixt import modules # pylint: disable=C0413
+
+
+def srv(event):
+    "create service file (pipx)."
+    import getpass # pylint: disable=C0415
+    if event.args:
+        username = event.args[0]
+    else:
+        username  = getpass.getuser()
+    path = os.path.normpath(f"/home/{username}/.local/bin/")
+    txt = f"""[Unit]
+Description={cfg.name.upper()}
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User={username}
+Group={username}
+ExecStartPre={path}/{cfg.name} skl
+ExecStart={path}/{cfg.name}s
+ExitType=cgroup
+KillSignal=SIGKILL
+KillMode=control-group
+Restart=no
+
+[Install]
+WantedBy=default.target"""
+    event.reply(txt)
+
+
+srv.target = "cli"
+
+
+def wrapped():
+    "wrap main."
+    wrap(main)
+    errors()
+
+
+def main():
+    "main"
+    Commands.add(srv)
+    parse(cfg, " ".join(sys.argv[1:]))
+    skel()
+    enable(print)
+    cfg.dis = cfg.sets.dis
+    cfg.mod = ",".join(modnames(modules))
+    scan(cfg.mod, modules)
+    cmnd(cfg.otxt, print)
+
+
+if __name__ == "__main__":
+    wrapped()

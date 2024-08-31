@@ -7,7 +7,7 @@
 from .default import Default
 
 
-class Config(Default): # pylint: disable=R0903
+class Config(Default): # pylint: disable=R0902,R0903
 
     "Config"
 
