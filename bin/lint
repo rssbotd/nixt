@@ -1,1 +1,1 @@
-pylint nixt examples bin/tinder tests
+pylint nixt bin/tinder tests

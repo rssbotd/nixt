@@ -7,8 +7,10 @@
 import time
 
 
-from nixt.lib.runtime import STARTTIME
 from nixt.lib.utils   import laps
+
+
+STARTTIME = time.time()
 
 
 def upt(event):

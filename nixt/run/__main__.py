@@ -8,15 +8,13 @@ import os
 import sys
 
 
+from nixt.lib.command import Commands
 from nixt.lib.config  import Config
 from nixt.lib.persist import Persist, skel
 from nixt.lib.errors  import errors
 from nixt.lib.main    import cmnd, enable, scan, wrap
 from nixt.lib.parse   import parse
 from nixt.lib.utils   import modnames
-
-
-from nixt import mod
 
 
 cfg         = Config()
@@ -29,9 +27,12 @@ cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
 Persist.workdir = cfg.wdr
 
 
+from nixt import mod # pylint: disable=C0413
+
+
 def srv(event):
     "create service file (pipx)."
-    import getpass
+    import getpass # pylint: disable=C0415
     if event.args:
         username = event.args[0]
     else:
@@ -69,6 +70,7 @@ def wrapped():
 
 def main():
     "main"
+    Commands.add(srv)
     parse(cfg, " ".join(sys.argv[1:]))
     skel()
     enable(print)

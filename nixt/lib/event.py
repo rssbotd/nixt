@@ -23,6 +23,9 @@ class Event(Default): # pylint: disable=R0902
         self.txt     = ""
         self.type    = "command"
 
+    def nop(self):
+        "do nothing"
+
     def ready(self):
         "event is ready."
         self._ready.set()

@@ -19,9 +19,6 @@ from nixt.lib.parse   import parse
 from nixt.lib.utils   import forever, modnames, spl
 
 
-from nixt import mod
-
-
 cfg         = Config()
 cfg.name    = Config.__module__.rsplit(".", maxsplit=3)[-3]
 cfg.wdr     = os.path.expanduser(f"~/.{cfg.name}")
@@ -30,6 +27,9 @@ cfg.mod     = "cmd,err,mod,skl,srv,thr"
 
 
 Persist.workdir = cfg.wdr
+
+
+from nixt import mod # pylint: disable=C0413
 
 
 if os.path.exists("mods"):

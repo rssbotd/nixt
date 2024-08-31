@@ -4,8 +4,8 @@
 "list of commands"
 
 
-from ..lib.command import Commands
-from ..lib.object  import keys
+from nixt.lib.command import Commands
+from nixt.lib.object  import keys
 
 
 def cmd(event):

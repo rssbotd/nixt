@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "nixt"
 description = "you have been nixt"
-version = "18"
+version = "20"
 authors = [
     {name = "Bart Thate", email = "rssbotd@gmail.com"},
 ]
@@ -25,10 +25,10 @@ classifiers = [
 
 
 [project.scripts]
-"nixt"  = "nixt.__main__:wrapped"
-"nixtc" = "nixt.prompt:wrapped"
-"nixtd" = "nixt.daemon:wrapped"
-"nixts" = "nixt.service:wrapped"
+"nixt"  = "nixt.run.__main__:wrapped"
+"nixtc" = "nixt.run.prompt:wrapped"
+"nixtd" = "nixt.run.daemon:wrapped"
+"nixts" = "nixt.run.service:wrapped"
 
 
 [project.urls]

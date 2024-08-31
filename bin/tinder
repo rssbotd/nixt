@@ -19,10 +19,10 @@ import _thread
 sys.path.insert(0, os.getcwd())
 
 
-from nixt.face import *
+from nixt.lib.face import *
 
 
-from nixt import modules
+from nixt import mod
 
 
 if os.path.exists("files"):
@@ -31,7 +31,7 @@ else:
     mods = None
 
 
-modules.rss.DEBUG = True
+mod.rss.DEBUG = True
 
 
 LAP = 1
@@ -139,11 +139,11 @@ def main():
     "main"
     enable(print)
     cfg.dis = cfg.sets.dis
-    cfg.mod = ",".join(modnames(modules, mods))
+    cfg.mod = ",".join(modnames(mod, mods))
     if "v" in cfg.opts:
         dte = " ".join(time.ctime(time.time()).replace("  ", " ").split()[1:])
         print(f'{dte} {cfg.name.upper()} {cfg.opts.upper()} {cfg.mod.upper()}'.replace("  ", " "))
-    scan(cfg.mod, modules, mods)
+    scan(cfg.mod, mod, mods)
     nrs = cfg.index or 1
     nrcommand = len(Commands.cmds) or 1
     clt = CLI()

@@ -15,9 +15,6 @@ from nixt.lib.main    import init, scan, wrap
 from nixt.lib.utils   import forever, pidfile, privileges
 
 
-from nixt import mod
-
-
 cfg         = Config()
 cfg.mod     = "cmd,err,mod,skl,srv,thr"
 cfg.name    = Config.__module__.rsplit(".", maxsplit=3)[-3]
@@ -26,6 +23,9 @@ cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
 
 
 Persist.workdir = cfg.wdr
+
+
+from nixt import mod # pylint: disable=C0413
 
 
 def daemon(verbose=False):
