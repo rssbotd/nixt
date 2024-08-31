@@ -87,6 +87,10 @@ USAGE
     $ nixtd
     $
 
+    start a service
+
+    $ nixts
+    
 
 COMMANDS
 
@@ -151,6 +155,7 @@ FILES
     ~/.local/bin/nixt
     ~/.local/bin/nixtc
     ~/.local/bin/nixtd
+    ~/.local/bin/nixts
     ~/.local/pipx/venvs/nixt/
 
 
