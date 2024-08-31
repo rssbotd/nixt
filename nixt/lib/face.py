@@ -6,7 +6,7 @@
 "interface"
 
 
-from . import client, cmds, decoder, encoder, errors, event, reactor
+from . import client, cmds, config, decoder, encoder, errors, event, reactor
 from . import log, object, parse, persist, repeater, thread, timer, utils
 
 
@@ -33,6 +33,7 @@ def __dir__():
         'Broker',
         'CLI',
         'Commands',
+        'Config',
         'Console',
         'Default',
         'Errors',

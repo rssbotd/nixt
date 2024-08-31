@@ -15,15 +15,15 @@ import time
 import _thread
 
 
-from ..client  import Client, command
-from ..default import Default
-from ..errors  import later
-from ..fleet   import Fleet
-from ..event   import Event
-from ..log     import Logging, debug
-from ..object  import Object, edit, fmt, keys
-from ..persist import last, sync
-from ..thread  import launch
+from nixt.lib.client  import Client, command
+from nixt.lib.default import Default
+from nixt.lib.errors  import later
+from nixt.lib.fleet   import Fleet
+from nixt.lib.event   import Event
+from nixt.lib.log     import Logging, debug
+from nixt.lib.object  import Object, edit, fmt, keys
+from nixt.lib.persist import last, sync
+from nixt.lib.thread  import launch
 
 
 Logging.filter = ["PING", "PONG", "PRIVMSG"]

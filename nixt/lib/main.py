@@ -5,7 +5,7 @@
 
 
 from .client  import Client, command
-from .cmds    import Commands
+from .command import Commands
 from .errors  import Errors, later
 from .persist import Persist
 from .event   import Event

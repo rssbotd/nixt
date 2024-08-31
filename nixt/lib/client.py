@@ -4,7 +4,7 @@
 "client"
 
 
-from .cmds    import Commands
+from .command import Commands
 from .object  import Object
 from .parse   import parse
 from .reactor import Reactor

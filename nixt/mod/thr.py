@@ -8,9 +8,11 @@ import threading
 import time
 
 
-from ..object  import Object, update
-from ..runtime import STARTTIME
-from ..utils   import laps
+from nixt.lib.object  import Object, update
+from nixt.lib.utils   import laps
+
+
+STARTTIME = time.time()
 
 
 def thr(event):

@@ -12,7 +12,7 @@ SYNOPSIS
     nixt  <cmd> [key=val] [key==val]
     nixtc [-a] [-i]
     nixtd
-
+    nixts
 
 DESCRIPTION
 

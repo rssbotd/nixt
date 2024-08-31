@@ -4,7 +4,7 @@
 "skel"
 
 
-from ..persist import skel
+from nixt.lib.persist import skel
 
 
 def skl(event):

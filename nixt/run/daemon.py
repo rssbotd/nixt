@@ -4,17 +4,28 @@
 "daemon"
 
 
+import getpass
 import os
 import sys
 
 
-from .persist import skel
-from .main    import init, scan, wrap
-from .runtime import Cfg
-from .utils   import forever, pidfile, privileges
+from nixt.lib.config  import Config
+from nixt.lib.persist import Persist,skel
+from nixt.lib.main    import init, scan, wrap
+from nixt.lib.utils   import forever, pidfile, privileges
 
 
-from . import modules
+from nixt import mod
+
+
+cfg         = Config()
+cfg.name    = Config.__module__.rsplit(".", maxsplit=3)[-3]
+cfg.mod     = "cmd,err,mod,skl,srv,thr"
+cfg.wdr     = os.path.expanduser(f"~/.{cfg.name}")
+cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
+
+
+Persist.workdir = cfg.wdr
 
 
 def daemon(verbose=False):
@@ -46,13 +57,14 @@ def wrapped():
 
 def main():
     "main"
-    Cfg.mod += ",irc,rss"
+    cfg.mod += ",irc,rss"
+    cfg.user = getpass.getuser()
     daemon()
-    privileges(Cfg.user)
+    privileges(cfg.user)
     skel()
-    pidfile(Cfg.pidfile)
-    scan(Cfg.mod, modules)
-    init(Cfg.mod, modules)
+    pidfile(cfg.pidfile)
+    scan(cfg.mod, mod)
+    init(cfg.mod, mod)
     forever()
 
 

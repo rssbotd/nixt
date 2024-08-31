@@ -40,7 +40,9 @@ classifiers = [
 [tools.setuptools]
 packages = [
     'nixt',
-    'nixt.modules'
+    'nixt.lib',
+    'nixt.mod',
+    'nixt.run'
 ]
 zip-safe=true
 
