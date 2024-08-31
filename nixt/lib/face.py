@@ -11,6 +11,7 @@ from . import log, object, parse, persist, repeater, thread, timer, utils
 
 
 from .client   import *
+from .config   import *
 from .command  import *
 from .decoder  import *
 from .encoder  import *
@@ -48,6 +49,7 @@ def __dir__():
         'Thread',
         'Timer',
         'broker',
+        'banner',
         'command',
         'daemon',
         'debug',

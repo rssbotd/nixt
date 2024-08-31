@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 # This file is placed in the Public Domain.
-#
-# pylint: disable=C0103,C0413,W0201,W0401,W0614,W0622,E0401
 
 
 "tinder"
@@ -22,10 +20,25 @@ sys.path.insert(0, os.getcwd())
 from nixt.lib.face import *
 
 
+cfg         = Config()
+cfg.mod     = "cmd,err,mod,skl,srv,thr"
+cfg.name    = Config.__module__.rsplit(".", maxsplit=3)[-3]
+cfg.debug   = True
+cfg.mod     = ""
+cfg.name    = "tinder"
+cfg.silent  = False
+cfg.skip    = ["debug",]
+cfg.wdr     = ".test"
+cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
+
+
+Persist.workdir = cfg.wdr
+
+
 from nixt import mod
 
 
-if os.path.exists("files"):
+if os.path.exists("mods"):
     import files as mods
 else:
     mods = None
@@ -42,13 +55,7 @@ STARTTIME = time.time()
 Client.out   = print
 
 
-cfg         = Default()
-cfg.debug   = True
-cfg.mod     = ""
-cfg.name    = "tinder"
-cfg.silent  = False
-cfg.skip    = ["debug",]
-cfg.wdr     = ".test"
+cfg         = Config()
 
 
 events = []
@@ -116,9 +123,6 @@ def payload(clt):
         return nmr
 
 
-payload.threaded = True
-
-
 def wrap(function): # pylint: disable=E0102
     "reset terminal."
     old2 = None
@@ -140,12 +144,7 @@ def main():
     enable(print)
     cfg.dis = cfg.sets.dis
     cfg.mod = ",".join(modnames(mod, mods))
-    if "v" in cfg.opts:
-        dte = " ".join(time.ctime(time.time()).replace("  ", " ").split()[1:])
-        print(f'{dte} {cfg.name.upper()} {cfg.opts.upper()} {cfg.mod.upper()}'.replace("  ", " "))
     scan(cfg.mod, mod, mods)
-    nrs = cfg.index or 1
-    nrcommand = len(Commands.cmds) or 1
     clt = CLI()
     clt.start()
     clt.threaded = "t" in cfg.opts
@@ -154,14 +153,7 @@ def main():
         thrs.append(launch(payload, clt))
     for thr in thrs:
         thr.join()
-    #shutdown()
     consume(events)
-    endtime = time.time()
-    lap = laps(endtime-STARTTIME)
-    percall = (endtime-STARTTIME)/(nrs*nrcommand)
-    errors()
-    if "v" in cfg.opts:
-        print(f"{lap} {nrs} {nrcommand} {percall}")
 
 
 if __name__ == "__main__":
@@ -170,8 +162,16 @@ if __name__ == "__main__":
         if os.path.exists(Persist.workdir):
             shutil.rmtree(Persist.workdir)
     skel()
+    nrs = cfg.index or 1
+    nrcommand = len(Commands.cmds) or 1
     if "p" in cfg.opts:
         profile.runctx(main.__code__, globals(), locals())
     else:
         wrap(main)
+    errors()
+    if "v" in cfg.opts:
+        endtime = time.time()
+        lap = laps(endtime-STARTTIME)
+        percall = (endtime-STARTTIME)/(nrs*nrcommand)
+        print(f"{lap} {nrs} {nrcommand} {percall}")
     sys.exit()

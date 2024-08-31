@@ -20,6 +20,7 @@ from nixt.lib.utils   import forever, modnames, spl
 
 
 cfg         = Config()
+Cfg.title   = "you have beent nixt"
 cfg.name    = Config.__module__.rsplit(".", maxsplit=3)[-3]
 cfg.wdr     = os.path.expanduser(f"~/.{cfg.name}")
 cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
@@ -36,6 +37,11 @@ if os.path.exists("mods"):
     import mods as MODS # pylint: disable=E0401
 else:
     MODS = None
+
+
+def banner():
+    dte = " ".join(time.ctime(time.time()).replace("  ", " ").split()[1:])
+    print(f'{dte} {cfg.name.upper()} {cfg.title) {cfg.opts.upper()} {cfg.mod.upper()}'.replace("  ", " "))
 
 
 def wrap(func):
