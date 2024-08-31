@@ -27,7 +27,7 @@ cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
 Persist.workdir = cfg.wdr
 
 
-from nixt import mod # pylint: disable=C0413
+from nixt import modules # pylint: disable=C0413
 
 
 def srv(event):
@@ -75,8 +75,8 @@ def main():
     skel()
     enable(print)
     cfg.dis = cfg.sets.dis
-    cfg.mod = ",".join(modnames(mod))
-    scan(cfg.mod, mod)
+    cfg.mod = ",".join(modnames(modules))
+    scan(cfg.mod, modules)
     cmnd(cfg.otxt, print)
 
 

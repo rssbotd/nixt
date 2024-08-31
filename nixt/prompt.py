@@ -29,7 +29,7 @@ cfg.mod     = "cmd,err,mod,skl,srv,thr"
 Persist.workdir = cfg.wdr
 
 
-from nixt import mod # pylint: disable=C0413
+from nixt import modules # pylint: disable=C0413
 
 
 if os.path.exists("mods"):
@@ -61,14 +61,14 @@ def main():
     enable(print)
     skel()
     cfg.dis = cfg.sets.dis
-    mods = modnames(mod, MODS)
+    mods = modnames(modules, MODS)
     cfg.mod = ",".join(mods)
     if cfg.dis:
-        cfg.mod = ",".join(set(mods) - set(spl(cfg.dis)))
-    scan(cfg.mod, mod, MODS)
+        cfg.mod = ",".join(set(modules) - set(spl(cfg.dis)))
+    scan(cfg.mod, modules, MODS)
     csl = Console(print, input)
     if "i" in cfg.opts:
-        init(cfg.mod, mod, MODS)
+        init(cfg.mod, modules, MODS)
     csl.start()
     cmnd(cfg.otxt, print)
     forever()

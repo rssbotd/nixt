@@ -25,7 +25,7 @@ cfg.user    = getpass.getuser()
 Persist.workdir = cfg.wdr
 
 
-from nixt import mod # pylint: disable=C0413
+from nixt import modules # pylint: disable=C0413
 
 
 def wrapped():
@@ -43,8 +43,8 @@ def main():
     privileges(cfg.user)
     skel()
     pidfile(cfg.pidfile)
-    scan(cfg.mod, mod)
-    initer(cfg.mod, mod)
+    scan(cfg.mod, modules)
+    initer(cfg.mod, modules)
     forever()
 
 

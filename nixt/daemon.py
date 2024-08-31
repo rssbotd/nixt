@@ -25,7 +25,7 @@ cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
 Persist.workdir = cfg.wdr
 
 
-from nixt import mod # pylint: disable=C0413
+from nixt import modules # pylint: disable=C0413
 
 
 def daemon(verbose=False):
@@ -63,8 +63,8 @@ def main():
     privileges(cfg.user)
     skel()
     pidfile(cfg.pidfile)
-    scan(cfg.mod, mod)
-    init(cfg.mod, mod)
+    scan(cfg.mod, modules)
+    init(cfg.mod, modules)
     forever()
 
 

@@ -20,6 +20,9 @@ class Object: # pylint: disable=R0902
     def __len__(self):
         return len(self.__dict__)
 
+    def __oid__(self):
+        return 1
+
     def __str__(self):
         return str(self.__dict__)
 
