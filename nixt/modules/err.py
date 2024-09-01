@@ -5,7 +5,7 @@
 "show errors"
 
 
-from ..errors import Errors
+from nixt.face import Errors
 
 
 def err(event):

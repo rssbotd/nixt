@@ -17,11 +17,6 @@ from nixt.main    import init, scan, wrap
 from nixt.utils   import forever, pidfile, privileges
 
 
-cfg = config()
-cfg.mod  = "cmd,err,irc,rss,thr"
-cfg.user = getpass.getuser()
-
-
 def daemon(verbose=False):
     "switch to background."
     pid = os.fork()
@@ -46,6 +41,9 @@ def daemon(verbose=False):
 def main():
     "main"
     daemon()
+    cfg = config()
+    cfg.mod  = "cmd,err,irc,rss,thr"
+    cfg.user = getpass.getuser()
     privileges(cfg.user)
     pidfile(cfg.pidfile)
     from nixt.modules import all as modules

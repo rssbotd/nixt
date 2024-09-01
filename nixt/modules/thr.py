@@ -9,8 +9,7 @@ import threading
 import time
 
 
-from ..object  import Object, update
-from ..utils   import laps
+from nixt.face import Object, laps, update
 
 
 STARTTIME = time.time()

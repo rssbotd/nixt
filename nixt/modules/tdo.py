@@ -8,9 +8,7 @@
 import time
 
 
-from ..object  import Object
-from ..persist import find, sync
-from ..utils   import fntime, laps
+from nixt.face import Object, find, fntime, laps, sync
 
 
 class NoDate(Exception):

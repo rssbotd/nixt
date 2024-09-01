@@ -7,22 +7,15 @@
 "cli"
 
 
-import os
 import sys
 
 
-from nixt.config  import config
-from nixt.main    import cmnd, scan, wrap
-from nixt.parse   import parse
-from nixt.utils   import modnames
-
-
-cfg = config()
-cfg.mod = "cmd,err,mod,skl,srv,thr"
+from nixt.face import Commands, cmnd, config, modnames, parse, scan, wrap
 
 
 def main():
     "main"
+    cfg = config()
     parse(cfg, " ".join(sys.argv[1:]))
     from nixt.modules import all as modules
     cfg.mod = ",".join(modnames(modules))
@@ -32,4 +25,3 @@ def main():
 
 if __name__ == "__main__":
     wrap(main)
-    os._exit(0)

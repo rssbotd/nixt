@@ -6,22 +6,25 @@
 "interface"
 
 
-from . import client, command, config, decoder, encoder, errors, event, reactor
-from . import log, object, parse, persist, repeater, thread, timer, utils
+from . import client, command, config, console, decoder, encoder, errors
+from . import event, reactor, log, object, parse, persist, repeater, thread
+from . import fleet, timer, utils
 
 
 from .client   import *
 from .config   import *
 from .command  import *
+from .console  import *
 from .decoder  import *
 from .encoder  import *
 from .errors   import *
 from .event    import *
+from .fleet    import *
 from .log      import *
 from .main     import *
 from .object   import *
 from .parse    import *
-from .persist import *
+from .persist  import *
 from .reactor  import *
 from .repeater import *
 from .thread   import *

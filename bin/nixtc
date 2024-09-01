@@ -16,16 +16,9 @@ import termios
 sys.path.insert(0, os.getcwd())
 
 
-from nixt.config  import config
-from nixt.console import Console
-from nixt.errors  import errors
-from nixt.main    import cmnd, enable, init, scan
-from nixt.parse   import parse
-from nixt.utils   import forever, modnames, spl
-
-
-cfg = config()
-cfg.mod = "cmd,err,mod,thr"
+from nixt.face import Console
+from nixt.face import cmnd, config, enable, forever, modnames, parse
+from nixt.face import errors, scan
 
 
 if os.path.exists("mods"):
@@ -52,6 +45,7 @@ def wrap(func):
 
 def main():
     "main"
+    cfg = config()
     parse(cfg, " ".join(sys.argv[1:]))
     cfg.dis = cfg.sets.dis
     enable(print)

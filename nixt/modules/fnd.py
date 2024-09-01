@@ -5,8 +5,7 @@
 "locate"
 
 
-from ..object  import fmt
-from ..persist import find, long, skel, types
+from nixt.face import find, fmt, long, skel, types
 
 
 def fnd(event):

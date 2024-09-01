@@ -20,14 +20,9 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import quote_plus, urlencode
 
 
-from ..default  import Default
-from ..fleet    import Fleet
-from ..object   import Object, construct, fmt, update
-from ..persist  import find, last, sync
-from ..repeater import Repeater
-from ..thread   import launch
-from ..log      import debug
-from ..utils    import fntime, laps, spl
+from nixt.face import Default, Fleet, Object, Repeater
+from nixt.face import construct, fmt, update, launch
+from nixt.face import debug, find, fntime, laps, last, spl, sync
 
 
 def init():
