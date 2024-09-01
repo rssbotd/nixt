@@ -1,5 +1,5 @@
 # This file is placed in the Public Domain.
-# pylint: disable=W0212
+# pylint: disable=C,I,R,W0212
 
 
 "reactor"

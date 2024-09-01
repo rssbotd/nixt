@@ -13,6 +13,9 @@ import sys
 import termios
 
 
+sys.path.insert(0, os.getcwd())
+
+
 from nixt.config  import Config
 from nixt.console import Console
 from nixt.errors  import errors
@@ -72,6 +75,8 @@ def main():
     csl = Console(print, input)
     if "i" in cfg.opts:
         init(cfg.mod, modules, MODS)
+    if cfg.otxt:
+        return cmnd(cfg.otxt, print)
     csl.start()
     cmnd(cfg.otxt, print)
     forever()
