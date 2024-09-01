@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # This file is placed in the Public Domain.
+# pylint: disable=C,I,R
 
 
 "cli"
@@ -19,7 +20,7 @@ from nixt.utils   import modnames
 
 
 cfg         = Config()
-cfg.name    = Config.__module__.rsplit(".", maxsplit=3)[-3]
+cfg.name    = Config.__module__.rsplit(".", maxsplit=2)[-2]
 cfg.mod     = "cmd,err,mod,skl,srv,thr"
 cfg.wdr     = os.path.expanduser(f"~/.{cfg.name}")
 cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
@@ -28,12 +29,12 @@ cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
 Persist.workdir = cfg.wdr
 
 
-from nixt import modules # pylint: disable=C0413
+from nixt import modules 
 
 
 def srv(event):
     "create service file (pipx)."
-    import getpass # pylint: disable=C0415
+    import getpass
     if event.args:
         username = event.args[0]
     else:

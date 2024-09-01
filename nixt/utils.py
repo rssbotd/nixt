@@ -1,4 +1,5 @@
 # This file is placed in the Public Domain.
+# pylint: disable=C,I,R
 
 
 "utilities"
@@ -103,7 +104,7 @@ def modnames(*args):
     return sorted(res)
 
 
-def named(obj): # pylint: disable=R0911
+def named(obj):
     "return a full qualified name of an object/function/module."
     if isinstance(obj, rtypes.ModuleType):
         return obj.__name__

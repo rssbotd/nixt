@@ -1,4 +1,5 @@
 # This file is placed in the Public Domain.
+# pylint: disable=C,I,R
 
 
 "at a specific time"
@@ -13,7 +14,7 @@ from .thread import launch
 from .utils  import named
 
 
-class Timer(Object): # pylint: disable=R0902
+class Timer(Object):
 
     "Timer"
 

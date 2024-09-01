@@ -22,7 +22,7 @@ from nixt.face import *
 
 cfg         = Config()
 cfg.mod     = "cmd,err,mod,skl,srv,thr"
-cfg.name    = Config.__module__.rsplit(".", maxsplit=3)[-3]
+cfg.name    = Config.__module__.rsplit(".", maxsplit=2)[-2]
 cfg.debug   = True
 cfg.mod     = ""
 cfg.name    = "tinder"

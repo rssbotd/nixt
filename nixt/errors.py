@@ -1,4 +1,5 @@
 # This file is placed in the Public Domain.
+# pylint: disable=C,I,R,E1102
 
 
 "deferred exception handling"
@@ -34,7 +35,7 @@ class Errors:
     def output(exc):
         "check if output function is set."
         if Errors.out:
-            Errors.out(Errors.format(exc)) # pylint: disable=E1102
+            Errors.out(Errors.format(exc))
 
 
 def errors():

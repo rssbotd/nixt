@@ -1,4 +1,5 @@
 # This file is placed in the Public Domain.
+# pylint: disable=C,I,R,W0718
 
 
 "internet relay chat"
@@ -40,7 +41,7 @@ def init():
     return irc
 
 
-class Config(Default): # pylint: disable=R0902,R0903
+class Config(Default):
 
     "Config"
 
@@ -241,7 +242,7 @@ class IRC(Client, Output):
                 BrokenPipeError
                ) as _ex:
             pass
-        except Exception as ex: # pylint: disable=W0718
+        except Exception as ex:
             later(ex)
 
     def docommand(self, cmd, *args):
@@ -345,7 +346,7 @@ class IRC(Client, Output):
         self.direct(f'NICK {nck}')
         self.direct(f'USER {nck} {server} {server} {nck}')
 
-    def parsing(self, txt): # pylint: disable=R0912,R0915
+    def parsing(self, txt):
         "parse text into an event."
         rawstr = str(txt)
         rawstr = rawstr.replace('\u0001', '')

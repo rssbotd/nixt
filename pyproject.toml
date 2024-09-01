@@ -24,13 +24,6 @@ classifiers = [
 ]
 
 
-[project.scripts]
-"nixt"  = "nixt.run.cli:wrapped"
-"nixtc" = "nixt.run.prompt:wrapped"
-"nixtd" = "nixt.run.daemon:wrapped"
-"nixts" = "nixt.run.service:wrapped"
-
-
 [project.urls]
 "home" = "https://pypi.org/project/nixt"
 "bugs" = "https://github.com/rssbotd/nixt/issues"
@@ -38,6 +31,12 @@ classifiers = [
 
 
 [tools.setuptools]
+script-files = [
+    'bin/nixt',
+    'bin/nixtc',
+    'bin/nixtd',
+    'bin/nixts'
+]
 packages = [
     'nixt',
     'nixt.lib',

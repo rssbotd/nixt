@@ -1,10 +1,11 @@
 # This file is placed in the Public Domain.
+# pylint: disable=C,I,R
 
 
 "a clean namespace"
 
 
-class Object: # pylint: disable=R0902
+class Object:
 
     "Object"
 

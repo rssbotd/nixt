@@ -1,4 +1,5 @@
 # This file is placed in the Public Domain.
+# pylint: disable=C,I,R
 
 
 "todo list"
@@ -17,7 +18,7 @@ class NoDate(Exception):
     "no matching date"
 
 
-class Todo(Object): # pylint: disable=R0903
+class Todo(Object):
 
     "Todo"
 

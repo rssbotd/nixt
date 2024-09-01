@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # This file is placed in the Public Domain.
+# pylint: disable=C,I,R,E0401
 
 
 "prompt"
@@ -21,7 +22,7 @@ from nixt.utils   import forever, modnames, spl
 
 
 cfg         = Config()
-cfg.name    = Config.__module__.rsplit(".", maxsplit=3)[-3]
+cfg.name    = Config.__module__.rsplit(".", maxsplit=2)[-2]
 cfg.wdr     = os.path.expanduser(f"~/.{cfg.name}")
 cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
 cfg.mod     = "cmd,err,mod,skl,srv,thr"
@@ -30,11 +31,11 @@ cfg.mod     = "cmd,err,mod,skl,srv,thr"
 Persist.workdir = cfg.wdr
 
 
-from nixt import modules # pylint: disable=C0413
+from nixt import modules
 
 
 if os.path.exists("mods"):
-    import mods as MODS # pylint: disable=E0401
+    import mods as MODS
 else:
     MODS = None
 

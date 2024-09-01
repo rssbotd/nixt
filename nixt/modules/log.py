@@ -1,4 +1,5 @@
 # This file is placed in the Public Domain.
+# pylint: disable=C,I,R
 
 
 "log text"
@@ -12,7 +13,7 @@ from ..persist import find, sync
 from ..utils   import fntime, laps
 
 
-class Log(Object): # pylint: disable=R0903
+class Log(Object):
 
     "Log"
 
