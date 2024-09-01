@@ -2,5 +2,5 @@
 # pylint: disable=C,I,R
 
 
-"you have been nixt."
+"NIXT"
 

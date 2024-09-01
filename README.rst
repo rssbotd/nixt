@@ -50,7 +50,7 @@ INSTALL
 
     <new terminal>
 
-    $ nixt srv > nixt.service
+    $ nixtsrv > nixt.service
     $ sudo mv nixt.service /etc/systemd/system/
     $ sudo systemctl enable nixt --now
 
