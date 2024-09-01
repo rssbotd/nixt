@@ -35,7 +35,9 @@ script-files = [
     'bin/nixt',
     'bin/nixtc',
     'bin/nixtd',
-    'bin/nixts'
+    'bin/nixts',
+    'bin/nixtskl',
+    'bin/nixtsrv'
 ]
 packages = [
     'nixt',

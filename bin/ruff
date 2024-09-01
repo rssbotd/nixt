@@ -1,2 +1,0 @@
-ruff check nixt/*.py nixt/modules/*.py bin/nixt bin/nixtc bin/nixtd bin/nixts tests/*.py
-

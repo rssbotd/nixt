@@ -35,6 +35,7 @@ def __dir__():
         'CLI',
         'Commands',
         'Config',
+        'config',
         'Console',
         'Default',
         'Errors',

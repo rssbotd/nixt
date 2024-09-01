@@ -1,1 +1,0 @@
-pylint nixt bin/nixt bin/nixtc bin/nixtd bin/nixts bin/tinder tests

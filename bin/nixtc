@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # This file is placed in the Public Domain.
-# pylint: disable=C,I,R,E0401
+# pylint: disable=C,I,R,W0611,W0212,E0401
 # ruff: noqa: E402
 
 
@@ -16,26 +16,16 @@ import termios
 sys.path.insert(0, os.getcwd())
 
 
-from nixt.config  import Config
+from nixt.config  import config
 from nixt.console import Console
 from nixt.errors  import errors
 from nixt.main    import cmnd, enable, init, scan
 from nixt.parse   import parse
-from nixt.persist import Persist,skel
 from nixt.utils   import forever, modnames, spl
 
 
-cfg         = Config()
-cfg.name    = Config.__module__.rsplit(".", maxsplit=2)[-2]
-cfg.wdr     = os.path.expanduser(f"~/.{cfg.name}")
-cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
-cfg.mod     = "cmd,err,mod,skl,srv,thr"
-
-
-Persist.workdir = cfg.wdr
-
-
-from nixt import modules
+cfg = config()
+cfg.mod = "cmd,err,mod,thr"
 
 
 if os.path.exists("mods"):
@@ -63,10 +53,9 @@ def wrap(func):
 def main():
     "main"
     parse(cfg, " ".join(sys.argv[1:]))
-    readline.redisplay()
-    enable(print)
-    skel()
     cfg.dis = cfg.sets.dis
+    enable(print)
+    from nixt.modules import all as modules
     mods = modnames(modules, MODS)
     cfg.mod = ",".join(mods)
     if cfg.dis:
@@ -82,11 +71,7 @@ def main():
     forever()
 
 
-def wrapped():
-    "wrap main function."
+if __name__ == "__main__":
     wrap(main)
     errors()
-
-
-if __name__ == "__main__":
-    wrapped()
+    os._exit(0)

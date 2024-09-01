@@ -1,7 +1,33 @@
-grep -R nixt nixt
-grep -R "print(" nixt
-grep -R __import__ nixt
-grep -R importlib nixt
-grep -R sys nixt
-grep -R "import sys" nixt
-#grep -R "import os" nixt
+#!/usr/bin/env python3
+# This file is in the Public Domain.
+
+
+"check basics"
+
+import os
+import sys
+
+
+NAME = "nixt"
+
+
+def popen(txt):
+    "run text in popen."
+    for line in os.popen(txt).readlines():
+        print(line.rstrip())
+        sys.stdout.flush()
+
+
+def main():
+    "grep for error"
+    popen(f'grep -R {NAME} {NAME}')
+    popen(f'grep -R "print(" {NAME}')
+    popen(f'grep -R __import__ {NAME}')
+    popen(f'grep -R importlib {NAME}')
+    popen(f'grep -R sys {NAME}')
+    popen(f'grep -R "import sys" {NAME}')
+    #popen('fgrep -R "import os" {NAME}')
+
+
+if __name__ == "__main__":
+    main()

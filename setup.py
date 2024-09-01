@@ -13,6 +13,8 @@ if __name__ == "__main__":
                          "bin/nixt",
                          "bin/nixtc",
                          "bin/nixtd",
-                         "bin/nixts"
+                         "bin/nixts",
+                         "bin/nixtskl",
+                         "bin/nixtsrv"
                          ])
 

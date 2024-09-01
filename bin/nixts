@@ -11,45 +11,26 @@ import getpass
 import os
 
 
-from nixt.config  import Config
-from nixt.persist import Persist, skel
+from nixt.config  import config
 from nixt.main    import init, scan, wrap
 from nixt.utils   import forever, pidfile, privileges
 
 
-cfg         = Config()
-cfg.name    = Config.__module__.rsplit(".", maxsplit=2)[-2]
-cfg.wdr     = os.path.expanduser(f"~/.{cfg.name}")
-cfg.mod     = "cmd,err,mod,skl,srv,thr"
-cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
-cfg.user    = getpass.getuser()
-
-
-Persist.workdir = cfg.wdr
-
-
-from nixt import modules
-
-
-def wrapped():
-    "wrap main"
-    wrap(main)
-    os._exit(0)
-
-
-initer = init
+cfg = config()
+cfg.mod = "cmd,err,irc,rss,thr"
+cfg.user = getpass.getuser()
 
 
 def main():
     "main"
-    cfg.mod += ",irc,rss"
     privileges(cfg.user)
-    skel()
     pidfile(cfg.pidfile)
+    from nixt.modules import all as modules
     scan(cfg.mod, modules)
-    initer(cfg.mod, modules)
+    init(cfg.mod, modules)
     forever()
 
 
 if __name__ == "__main__":
-    wrapped()
+    wrap(main)
+    os._exit(0)

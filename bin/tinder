@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # This file is placed in the Public Domain.
-# pylint: disable=C,I,R,E0401
+# pylint: disable=C,I,R,W0201,W0622,W0401,W0401,W0614,E0401
 
 "tinder"
 
@@ -20,22 +20,20 @@ sys.path.insert(0, os.getcwd())
 from nixt.face import *
 
 
-cfg         = Config()
+cfg         = config(".test")
 cfg.mod     = "cmd,err,mod,skl,srv,thr"
-cfg.name    = Config.__module__.rsplit(".", maxsplit=2)[-2]
 cfg.debug   = True
 cfg.mod     = ""
 cfg.name    = "tinder"
 cfg.silent  = False
 cfg.skip    = ["debug",]
 cfg.wdr     = ".test"
-cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
 
 
 Persist.workdir = cfg.wdr
 
 
-from nixt import modules
+from nixt.modules import all as modules
 
 
 if os.path.exists("mods"):
