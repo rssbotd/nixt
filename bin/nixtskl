@@ -5,8 +5,21 @@
 "skel"
 
 
+import getpass
+
+
+from nixt.config  import config
 from nixt.persist import skel
+from nixt.utils   import privileges
+
+
+cfg = config()
+
+
+def main():
+    privileges(getpass.getuser())
+    skel()
 
 
 if __name__ == "__main__":
-    skel()
+    main()
