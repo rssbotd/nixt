@@ -1,2 +1,2 @@
-ruff check nixt/mod/*.py nixt/lib/*.py nixt/mod/*.py tests/*.py
+ruff check nixt/*.py nixt/modules/*.py bin/nixt bin/nixtc bin/nixtd bin/nixts tests/*.py
 
