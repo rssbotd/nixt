@@ -156,6 +156,8 @@ FILES
     ~/.local/bin/nixtc
     ~/.local/bin/nixtd
     ~/.local/bin/nixts
+    ~/.local/bin/nixtskl
+    ~/.local/bin/nixtsrv
     ~/.local/pipx/venvs/nixt/
 
 
