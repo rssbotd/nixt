@@ -12,9 +12,13 @@ import os
 import sys
 
 
-from nixt.config  import config
+from nixt.config  import Config
 from nixt.main    import init, scan, wrap
 from nixt.utils   import forever, pidfile, privileges
+from nixt.modules import all as modules
+
+
+Cfg = Config()
 
 
 def daemon(verbose=False):
@@ -41,12 +45,11 @@ def daemon(verbose=False):
 def main():
     "main"
     daemon()
-    cfg = config()
-    cfg.mod  = "cmd,err,irc,rss,thr"
-    cfg.user = getpass.getuser()
-    privileges(cfg.user)
-    pidfile(cfg.pidfile)
-    from nixt.modules import all as modules
+    boot(Cfg)
+    Cfg.mod  = "cmd,err,irc,rss,thr"
+    Cfg.user = getpass.getuser()
+    privileges(Cfg.user)
+    pidfile(Cfg.pidfile)
     scan(cfg.mod, modules)
     init(cfg.mod, modules)
     forever()

@@ -22,9 +22,11 @@ from nixt.errors  import errors
 from nixt.main    import cmnd, enable, init, scan
 from nixt.parse   import parse
 from nixt.utils   import forever, modnames
+from nixt.modules import all as modules
 
 
-Cfg = Config()
+Cfg     = Config()
+Cfg.mod = "cmd"
 
 
 if os.path.exists("mods"):
@@ -51,17 +53,11 @@ def wrap(func):
 
 def main():
     "main"
-    boot(Cfg)
     parse(Cfg, " ".join(sys.argv[1:]))
-    print(Cfg)
-    Cfg.dis = Cfg.sets.dis
     enable(print)
-    from nixt.modules import all as modules
-    mods = modnames(modules, MODS)
-    Cfg.mod = ",".join(mods)
-    if Cfg.dis:
-        Cfg.mod = ",".join(set(modules) - set(spl(Cfg.dis)))
-    scan(Cfg.mod, modules, MODS)
+    if "a" in Cfg.opts:
+        Cfg.mod = ",".join(modnames(modules, MODS))
+    scan(Cfg.mod, modules, MODS, disable=Cfg.sets.dis)
     if Cfg.txt:
         return cmnd(Cfg.otxt, print)
     csl = Console(print, input)

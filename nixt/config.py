@@ -17,6 +17,11 @@ class Config(Default):
     "Config"
 
 
+    def __init__(self):
+        Default.__init__(self)
+        boot(self)
+
+
 def boot(cfg, path=None):
     cfg.name    = Config.__module__.rsplit(".", maxsplit=2)[-2]
     cfg.wdr     = path or os.path.expanduser(f"~/.{cfg.name}")

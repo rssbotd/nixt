@@ -10,17 +10,22 @@
 import sys
 
 
-from nixt.face import Commands, cmnd, config, modnames, parse, scan, wrap
+from nixt.config  import Config, boot
+from nixt.main    import cmnd, scan, wrap
+from nixt.parse   import parse
+from nixt.utils   import modnames
+from nixt.modules import all as modules
+
+
+Cfg = Config()
 
 
 def main():
     "main"
-    cfg = config()
-    parse(cfg, " ".join(sys.argv[1:]))
-    from nixt.modules import all as modules
-    cfg.mod = ",".join(modnames(modules))
-    scan(cfg.mod, modules)
-    cmnd(cfg.otxt, print)
+    parse(Cfg, " ".join(sys.argv[1:]))
+    Cfg.mod = ",".join(modnames(modules))
+    scan(Cfg.mod, modules)
+    cmnd(Cfg.otxt, print)
 
 
 if __name__ == "__main__":
