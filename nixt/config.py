@@ -17,11 +17,10 @@ class Config(Default):
     "Config"
 
 
-def config(path=None):
-    cfg         = Config()
-    cfg.name    = config.__module__.rsplit(".", maxsplit=2)[-2]
+def boot(cfg, path=None):
+    cfg.name    = Config.__module__.rsplit(".", maxsplit=2)[-2]
     cfg.wdr     = path or os.path.expanduser(f"~/.{cfg.name}")
-    cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
+    cfg.idfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
     Persist.workdir = cfg.wdr
     return cfg
 
@@ -29,5 +28,5 @@ def config(path=None):
 def __dir__():
     return (
         "Config",
-        'config'
+        'boot'
     )

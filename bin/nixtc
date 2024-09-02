@@ -16,9 +16,15 @@ import termios
 sys.path.insert(0, os.getcwd())
 
 
-from nixt.face import Console
-from nixt.face import cmnd, config, enable, forever, modnames, parse
-from nixt.face import errors, scan
+from nixt.config  import Config, boot
+from nixt.console import Console
+from nixt.errors  import errors
+from nixt.main    import cmnd, enable, init, scan
+from nixt.parse   import parse
+from nixt.utils   import forever, modnames
+
+
+Cfg = Config()
 
 
 if os.path.exists("mods"):
@@ -45,23 +51,23 @@ def wrap(func):
 
 def main():
     "main"
-    cfg = config()
-    parse(cfg, " ".join(sys.argv[1:]))
-    cfg.dis = cfg.sets.dis
+    boot(Cfg)
+    parse(Cfg, " ".join(sys.argv[1:]))
+    print(Cfg)
+    Cfg.dis = Cfg.sets.dis
     enable(print)
     from nixt.modules import all as modules
     mods = modnames(modules, MODS)
-    cfg.mod = ",".join(mods)
-    if cfg.dis:
-        cfg.mod = ",".join(set(modules) - set(spl(cfg.dis)))
-    scan(cfg.mod, modules, MODS)
+    Cfg.mod = ",".join(mods)
+    if Cfg.dis:
+        Cfg.mod = ",".join(set(modules) - set(spl(Cfg.dis)))
+    scan(Cfg.mod, modules, MODS)
+    if Cfg.txt:
+        return cmnd(Cfg.otxt, print)
     csl = Console(print, input)
-    if "i" in cfg.opts:
-        init(cfg.mod, modules, MODS)
-    if cfg.otxt:
-        return cmnd(cfg.otxt, print)
+    if "i" in Cfg.opts:
+        init(Cfg.mod, modules, MODS)
     csl.start()
-    cmnd(cfg.otxt, print)
     forever()
 
 
