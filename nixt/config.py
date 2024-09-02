@@ -25,7 +25,7 @@ class Config(Default):
 def boot(cfg, path=None):
     cfg.name    = Config.__module__.rsplit(".", maxsplit=2)[-2]
     cfg.wdr     = path or os.path.expanduser(f"~/.{cfg.name}")
-    cfg.idfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
+    cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
     Persist.workdir = cfg.wdr
     return cfg
 

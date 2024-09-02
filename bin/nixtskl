@@ -8,12 +8,12 @@
 import getpass
 
 
-from nixt.config  import config
+from nixt.config  import Config
 from nixt.persist import skel
 from nixt.utils   import privileges
 
 
-cfg = config()
+Cfg = Config()
 
 
 def main():

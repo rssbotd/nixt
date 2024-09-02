@@ -16,7 +16,7 @@ import termios
 sys.path.insert(0, os.getcwd())
 
 
-from nixt.config  import Config, boot
+from nixt.config  import Config
 from nixt.console import Console
 from nixt.errors  import errors
 from nixt.main    import cmnd, enable, init, scan

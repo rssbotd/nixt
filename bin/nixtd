@@ -45,13 +45,12 @@ def daemon(verbose=False):
 def main():
     "main"
     daemon()
-    boot(Cfg)
     Cfg.mod  = "cmd,err,irc,rss,thr"
     Cfg.user = getpass.getuser()
     privileges(Cfg.user)
     pidfile(Cfg.pidfile)
-    scan(cfg.mod, modules)
-    init(cfg.mod, modules)
+    scan(Cfg.mod, modules)
+    init(Cfg.mod, modules)
     forever()
 
 

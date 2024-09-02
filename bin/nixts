@@ -11,19 +11,23 @@ import getpass
 import os
 
 
-from nixt.face import config, forever, init, pidfile, privileges, scan, wrap
+from nixt.config  import Config
+from nixt.main    import init, scan, wrap
+from nixt.utils   import forever, pidfile, privileges
+from nixt.modules import all as modules
+
+
+Cfg = Config()
 
 
 def main():
     "main"
-    cfg = config()
-    cfg.mod = "cmd,err,irc,rss,thr"
-    cfg.user = getpass.getuser()
-    privileges(cfg.user)
-    pidfile(cfg.pidfile)
-    from nixt.modules import all as modules
-    scan(cfg.mod, modules)
-    init(cfg.mod, modules)
+    Cfg.mod = "cmd,err,irc,rss,thr"
+    Cfg.user = getpass.getuser()
+    privileges(Cfg.user)
+    pidfile(Cfg.pidfile)
+    scan(Cfg.mod, modules)
+    init(Cfg.mod, modules)
     forever()
 
 
