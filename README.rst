@@ -35,10 +35,6 @@ DESCRIPTION
     commands, deferred exception handling to not crash on an error, a
     parser to parse commandline options and values, etc.
 
-    NIXT has a demo bot, it can connect to IRC, fetch and display RSS
-    feeds, take todo notes, keep a shopping list and log text. You can
-    also copy/paste the service file and run it under systemd for 24/7
-    presence in a IRC channel.
 
 INSTALL
 
