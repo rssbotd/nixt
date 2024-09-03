@@ -1,5 +1,5 @@
 # This file is placed in the Public Domain.
-# pylint: disable=C,I,R,W0718
+# pylint: disable=W0718
 
 
 "threads"
@@ -13,9 +13,6 @@ import time
 from .errors import later
 from .event  import Event
 from .utils  import named
-
-
-rpr = object.__repr__
 
 
 class Thread(threading.Thread):

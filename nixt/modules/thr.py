@@ -1,5 +1,4 @@
 # This file is placed in the Public Domain.
-# pylint: disable=C,I,R
 
 
 "show running threads"
@@ -9,7 +8,9 @@ import threading
 import time
 
 
-from nixt.face import Object, laps, update
+from ..command import Commands
+from ..object  import Object, update
+from ..utils   import laps
 
 
 STARTTIME = time.time()
@@ -40,3 +41,6 @@ def thr(event):
         event.reply(' '.join(res))
     else:
         event.reply('no threads')
+
+
+Commands.add(thr)

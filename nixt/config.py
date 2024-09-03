@@ -1,5 +1,5 @@
 # This file is placed in the Public Domain.
-# pylint: disable=C,I,R,W0201
+# pylint: disable=R0902,R0903
 
 
 "configuration"
@@ -9,7 +9,6 @@ import os
 
 
 from .default import Default
-from .persist import Persist
 
 
 class Config(Default):
@@ -17,21 +16,18 @@ class Config(Default):
     "Config"
 
 
+    name    = Default.__module__.rsplit(".", maxsplit=2)[-2]
+    wdr     = os.path.expanduser(f"~/.{name}")
+    pidfile = os.path.join(wdr, f"{name}.pid")
+
     def __init__(self):
         Default.__init__(self)
-        boot(self)
-
-
-def boot(cfg, path=None):
-    cfg.name    = Config.__module__.rsplit(".", maxsplit=2)[-2]
-    cfg.wdr     = path or os.path.expanduser(f"~/.{cfg.name}")
-    cfg.pidfile = os.path.join(cfg.wdr, f"{cfg.name}.pid")
-    Persist.workdir = cfg.wdr
-    return cfg
+        self.name = self.name or Config.name
+        self.wdr  = self.wdr or Config.wdr
+        self.pidfile = self.pidfile or Config.pidfile
 
 
 def __dir__():
     return (
         "Config",
-        'boot'
     )

@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "nixt"
 description = "NIXT"
-version = "20"
+version = "21"
 authors = [
     {name = "Bart Thate", email = "rssbotd@gmail.com"},
 ]
@@ -35,9 +35,7 @@ script-files = [
     'bin/nixt',
     'bin/nixtc',
     'bin/nixtd',
-    'bin/nixts',
-    'bin/nixtskl',
-    'bin/nixtsrv'
+    'bin/nixts'
 ]
 packages = [
     'nixt',

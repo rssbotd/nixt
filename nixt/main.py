@@ -1,18 +1,24 @@
 # This file is placed in the Public Domain.
-# pylint: disable=C,I,R,W0718
+# pylint: disable=W0718
 
 
 "main"
 
 
 from .client  import Client, command
-from .command import Commands
 from .errors  import Errors, later
-from .persist import Persist
 from .event   import Event
 from .log     import Logging
 from .thread  import launch
-from .utils   import skip, spl
+from .utils   import spl
+from .workdir import skel, setwd
+
+
+def boot(outer=None, path=None):
+    "set basic config and skel directories."
+    skel()
+    setwd(path)
+    enable(outer)
 
 
 def cmnd(txt, outer):
@@ -49,21 +55,6 @@ def init(modstr, *pkgs, disable=None):
     return thrs
 
 
-def scan(modstr, *pkgs, disable=""):
-    "scan modules for commands and classes"
-    mds = []
-    for modname in spl(modstr):
-        if skip(modname, disable):
-            continue
-        for pkg in pkgs:
-            module = getattr(pkg, modname, None)
-            if not module:
-                continue
-            Commands.scan(module)
-            Persist.scan(module)
-    return mds
-
-
 def wrap(func):
     "catch exceptions"
     try:
@@ -76,9 +67,9 @@ def wrap(func):
 
 def __dir__():
     return (
+        'boot',
         'cmnd',
         'enable',
         'init',
-        'scan',
         'wrap'
     )

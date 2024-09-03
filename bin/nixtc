@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # This file is placed in the Public Domain.
-# pylint: disable=C,I,R,W0611,W0212,E0401
-# ruff: noqa: E402
+# pylint: disable=C0413,W0611
 
 
 "prompt"
@@ -17,22 +16,18 @@ sys.path.insert(0, os.getcwd())
 
 
 from nixt.config  import Config
+
+
+Cfg = Config()
+Cfg.mod = "cmd,err,mod,thr"
+
+
 from nixt.console import Console
 from nixt.errors  import errors
-from nixt.main    import cmnd, enable, init, scan
+from nixt.main    import boot, cmnd, enable, init
+from nixt.modules import face
 from nixt.parse   import parse
-from nixt.utils   import forever, modnames
-from nixt.modules import all as modules
-
-
-Cfg     = Config()
-Cfg.mod = "cmd"
-
-
-if os.path.exists("mods"):
-    import mods as MODS
-else:
-    MODS = None
+from nixt.utils   import forever
 
 
 def wrap(func):
@@ -53,16 +48,11 @@ def wrap(func):
 
 def main():
     "main"
+    boot()
     parse(Cfg, " ".join(sys.argv[1:]))
-    enable(print)
-    if "a" in Cfg.opts:
-        Cfg.mod = ",".join(modnames(modules, MODS))
-    scan(Cfg.mod, modules, MODS, disable=Cfg.sets.dis)
-    if Cfg.txt:
-        return cmnd(Cfg.otxt, print)
     csl = Console(print, input)
     if "i" in Cfg.opts:
-        init(Cfg.mod, modules, MODS)
+        init(Cfg.mod, face)
     csl.start()
     forever()
 
@@ -70,4 +60,3 @@ def main():
 if __name__ == "__main__":
     wrap(main)
     errors()
-    os._exit(0)
