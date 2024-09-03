@@ -63,7 +63,7 @@ COMMANDS
 
 SYSTEMD
 
-    $ nixt srv > rssbot.service
+    $ nixt srv > nixt.service
     $ sudo mv nixt.service /etc/systemd/system/
     $ sudo systemctl enable nixt --now
 
