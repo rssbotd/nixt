@@ -19,7 +19,7 @@ Cfg = Config()
 
 from nixt.command import Commands
 from nixt.errors  import errors
-from nixt.main    import boot, cmnd, wrap
+from nixt.main    import cmnd, enable, wrap
 from nixt.modules import face
 from nixt.parse   import parse
 from nixt.utils   import modnames
@@ -53,11 +53,12 @@ Commands.add(srv)
 def main():
     "main"
     parse(Cfg, " ".join(sys.argv[1:]))
+    if "v" in Cfg.opts:
+        enable(print)
     if Cfg.txt:
         cmnd(Cfg.otxt, print)
 
 
 if __name__ == "__main__":
-    boot()
     wrap(main)
     errors()

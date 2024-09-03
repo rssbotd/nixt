@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "nixt"
 description = "NIXT"
-version = "21"
+version = "30"
 authors = [
     {name = "Bart Thate", email = "rssbotd@gmail.com"},
 ]

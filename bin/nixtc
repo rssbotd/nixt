@@ -24,7 +24,7 @@ Cfg.mod = "cmd,err,mod,thr"
 
 from nixt.console import Console
 from nixt.errors  import errors
-from nixt.main    import boot, cmnd, enable, init
+from nixt.main    import cmnd, enable, init
 from nixt.modules import face
 from nixt.parse   import parse
 from nixt.utils   import forever
@@ -48,8 +48,9 @@ def wrap(func):
 
 def main():
     "main"
-    boot()
     parse(Cfg, " ".join(sys.argv[1:]))
+    if "v" in Cfg.opts:
+        enable(print)
     csl = Console(print, input)
     if "i" in Cfg.opts:
         init(Cfg.mod, face)

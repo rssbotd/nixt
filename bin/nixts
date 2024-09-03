@@ -18,7 +18,7 @@ Cfg.user = getpass.getuser()
 
 
 from nixt.errors  import errors
-from nixt.main    import boot, init, wrap
+from nixt.main    import init, wrap
 from nixt.modules import face
 from nixt.utils   import forever, pidfile, privileges
 
@@ -28,7 +28,6 @@ initer = init
 
 def main():
     "main"
-    boot()
     privileges(Cfg.user)
     pidfile(Cfg.pidfile)
     initer(Cfg.mod, face)

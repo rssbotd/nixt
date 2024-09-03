@@ -2,6 +2,7 @@
 # This file is placed in the Public Domain.
 # pylint: disable=C,I,R,W0201,W0622,W0401,W0401,W0614,E0401,E1121
 
+
 "tinder"
 
 
@@ -21,7 +22,7 @@ from nixt.face   import *
 
 
 Cfg         = Config()
-Cfg.mod     = "cmd,err,mod,skl,srv,thr"
+Cfg.mod     = "cmd,err,mod,srv,thr"
 Cfg.debug   = True
 Cfg.mod     = ""
 Cfg.name    = "tinder"
@@ -30,12 +31,6 @@ Cfg.skip    = ["debug",]
 
 
 from nixt.modules import face
-
-
-if os.path.exists("mods"):
-    import mods as MODS
-else:
-    MODS = None
 
 
 LAP = 1
@@ -79,17 +74,11 @@ class CLI(Client):
 
 def consume(evts):
     "wait for events."
-    fixed = []
     res = []
     for evt in evts:
-        #print(f"waiting {evt}")
-        res.append(evt.wait())
-        fixed.append(evt)
-    for fff in fixed:
-        try:
-            evts.remove(fff)
-        except ValueError:
-            continue
+        print(f"waiting {evt}")
+        evt.wait()
+        res.append(evt)
     return res
 
 
@@ -131,7 +120,7 @@ def main():
     "main"
     if "v" in Cfg.opts:
         enable(print)
-    Cfg.mod = ",".join(modnames(face, MODS))
+    Cfg.mod = ",".join(modnames(face))
     clt = CLI()
     clt.start()
     clt.threaded = "t" in Cfg.opts
@@ -144,7 +133,7 @@ def main():
 
 
 if __name__ == "__main__":
-    boot()
+    Workdir.wdr = ".test"
     parse(Cfg, " ".join(sys.argv[1:]))
     if "f" in Cfg.opts:
         if os.path.exists(Workdir.wdr):

@@ -19,7 +19,7 @@ Cfg.mod = "cmd,err,mod,irc,rss,thr"
 Cfg.user = getpass.getuser()
 
 
-from nixt.main    import boot, init, wrap
+from nixt.main    import init, wrap
 from nixt.modules import face
 from nixt.utils   import forever, pidfile, privileges
 
@@ -48,7 +48,6 @@ def daemon(verbose=False):
 def main():
     "main"
     daemon()
-    boot()
     privileges(Cfg.user)
     pidfile(Cfg.pidfile)
     init(Cfg.mod, face)

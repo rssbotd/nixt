@@ -20,12 +20,6 @@ class Config(Default):
     wdr     = os.path.expanduser(f"~/.{name}")
     pidfile = os.path.join(wdr, f"{name}.pid")
 
-    def __init__(self):
-        Default.__init__(self)
-        self.name = self.name or Config.name
-        self.wdr  = self.wdr or Config.wdr
-        self.pidfile = self.pidfile or Config.pidfile
-
 
 def __dir__():
     return (
