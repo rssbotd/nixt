@@ -29,16 +29,13 @@ Cfg.silent  = False
 Cfg.skip    = ["debug",]
 
 
-from rssbot.modules import face
+from nixt.modules import face
 
 
 if os.path.exists("mods"):
     import mods as MODS
 else:
     MODS = None
-
-
-face.rss.DEBUG = True
 
 
 LAP = 1
