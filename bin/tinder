@@ -76,7 +76,6 @@ def consume(evts):
     "wait for events."
     res = []
     for evt in evts:
-        print(f"waiting {evt}")
         evt.wait()
         res.append(evt)
     return res
