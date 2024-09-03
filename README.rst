@@ -40,7 +40,6 @@ DESCRIPTION
     also copy/paste the service file and run it under systemd for 24/7
     presence in a IRC channel.
 
-
 INSTALL
 
 ::
@@ -48,17 +47,7 @@ INSTALL
     $ pipx install nixt
     $ pipx ensurepath
 
-    <new terminal>
-
-    $ nixt srv > nixt.service
-    $ sudo mv nixt.service /etc/systemd/system/
-    $ sudo systemctl enable nixt --now
-
-    joins #nixt on localhost
-
-
 USAGE
-
 
 ::
 
@@ -90,7 +79,7 @@ USAGE
     start as service
 
     $ nixts
-    
+    <waits till ctrl-c>    
 
 COMMANDS
 
@@ -99,39 +88,20 @@ COMMANDS
     cmd - commands
     err - show errors
     mod - show modules
-    srv - create service file
+    srv - echo service file
     thr - show running threads
     upt - show uptime
 
 
-CONFIGURATION
+SYSTEMD
 
 ::
 
-    irc
+    $ nixt srv > nixt.service
+    $ sudo mv nixt.service /etc/systemd/system/
+    $ sudo systemctl enable nixt --now
 
-    $ nixt cfg server=<server>
-    $ nixt cfg channel=<channel>
-    $ nixt cfg nick=<nick>
-
-    sasl
- 
-    $ nixt pwd <nsvnick> <nspass>
-    $ nixt cfg password=<frompwd>
-
-    rss
-
-    $ nixt rss <url>
-    $ nixt dpl <urlmatch> <item1,item2>
-    $ nixt rem <urlmatch>
-    $ nixt res <urlmatch>
-    $ nixt nme <urlmatch> <name>
-
-    opml
-
-    $ nixt exp
-    $ nixt imp <filename>
-
+    joins #nixt on localhost
 
 FILES
 
@@ -142,8 +112,6 @@ FILES
     ~/.local/bin/nixtc
     ~/.local/bin/nixtd
     ~/.local/bin/nixts
-    ~/.local/bin/nixtskl
-    ~/.local/bin/nixtsrv
     ~/.local/pipx/venvs/nixt/
 
 

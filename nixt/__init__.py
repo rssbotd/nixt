@@ -1,85 +1,87 @@
 # This file is placed in the Public Domain.
-# pylint: disable=C,I,R
 
 
-"""24/7 Feed Fetcher
+"""NIXT
 
 
 SYNOPSIS
 
-    rssbot <cmd> [key=val] [key==val]
+    nixt <cmd> [key=val] [key==val]
+    nixtc
+    nixtd
+    nixts
 
 DESCRIPTION
 
-    RSSBOT is a python3 bot able to display rss feeds in your channel.
-
-    RSSBOT comes with a cli to configure and a daemon to run in the
-    background, hooking the daemon in systemd brings a 24/7 available
-    rssbot in your channel.
+    NIXT does nothing, write your own commands !
 
 INSTALL
 
-    $ pipx install rssbot
+    $ pipx install nixt
     $ pipx ensurepath
 
-    <new terminal>
+USAGE
 
-    $ rssbot srv > rssbot.service
-    $ sudo mv rssbot.service /etc/systemd/system/
-    $ sudo systemctl enable rssbot --now
-    $ rssbot rss <url>
+    without any argument nixt does nothing
 
-    joins #rssbot on localhost
-    
+    $ nixt
+    $
+
+    see list of commands
+
+    $ nixt cmd
+    cmd,err,mod,srv,thr,upt
+
+    start a console
+
+    $ nixtc
+    >
+
+    use -i to run init on modules
+
+    $ nixtc -i
+    >
+
+    start daemon
+
+    $ nixtd
+    $
+
+    start as service
+
+    $ nixts
+    <waits till ctrl-c>
+
 COMMANDS
 
-    cfg - irc configuration
     cmd - commands
-    dpl - sets display items
     err - show errors
-    exp - export opml (stdout)
-    imp - import opml
-    mre - display cached output
-    pwd - sasl nickserv name/pass
-    rem - removes a rss feed
-    res - restore deleted feeds
-    rss - add a feed
+    mod - available modules
     srv - create service file
-    syn - sync rss feeds
     thr - show running threads
+    upt - show uptime
 
-CONFIGURATION
+SYSTEMD
 
-    irc
+    $ nixt srv > rssbot.service
+    $ sudo mv nixt.service /etc/systemd/system/
+    $ sudo systemctl enable nixt --now
 
-    $ rssbot cfg server=<server>
-    $ rssbot cfg channel=<channel>
-    $ rssbot cfg nick=<nick>
+FILES
 
-    sasl
- 
-    $ rssbot pwd <nsvnick> <nspass>
-    $ rssbot cfg password=<frompwd>
+    ~/.nixt
+    ~/.local/bin/nixt
+    ~/.local/bin/nixtc
+    ~/.local/bin/nixtd
+    ~/.local/bin/nixts
+    ~/.local/pipx/venvs/nixt/
 
-    rss
+AUTHOR
 
-    $ rssbot rss <url>
-    $ rssbot dpl <url> <item1,item2>
-    $ rssbot rem <url>
-    $ rssbot res <url>
-    $ rssbot nme <url> <name>
-
-    opml
-
-    $ rssbot exp
-    $ rssbot imp <filename>
+    Bart Thate <rssbotd@gmail.com>
 
 COPYRIGHT
 
-    RSSBOT is Public Domain.
-
+    NIXT is Public Domain.
 
 """
-
-
-__author__ = "\nBart Thate <rssbotd@gmail.com>"

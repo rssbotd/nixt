@@ -17,7 +17,7 @@ import _thread
 sys.path.insert(0, os.getcwd())
 
 
-from rssbot.face   import *
+from nixt.face   import *
 
 
 Cfg         = Config()
@@ -147,7 +147,7 @@ def main():
 
 
 if __name__ == "__main__":
-    setwd(".test")
+    boot()
     parse(Cfg, " ".join(sys.argv[1:]))
     if "f" in Cfg.opts:
         if os.path.exists(Workdir.wdr):

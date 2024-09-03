@@ -15,8 +15,8 @@ STARTTIME = time.time()
 
 
 def upt(event):
+    "show uptime."
     event.reply(laps(time.time()-STARTTIME))
 
 
 Commands.add(upt)
-    
