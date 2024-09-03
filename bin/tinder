@@ -144,7 +144,7 @@ if __name__ == "__main__":
         profile.runctx(main.__code__, globals(), locals())
     else:
         wrapped(main)
-    errors()
+    #errors()
     if "v" in Cfg.opts:
         endtime = time.time()
         lap = laps(endtime-STARTTIME)

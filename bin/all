@@ -15,11 +15,16 @@ NAME = "nixt"
 def popen(txt):
     "run text in popen."
     for line in os.popen(txt).readlines():
-        print(line.rstrip())
-        sys.stdout.flush()
+        if "-v" in sys.argv:
+            print(line.rstrip())
+            sys.stdout.flush()
 
 
 popen("bin/clean")
 popen("bin/check")
+popen('pytest')
 popen("bin/lint")
 popen("bin/tinder")
+popen('bin/clean -f')
+popen('git status')
+#popen('twine check dist/')
