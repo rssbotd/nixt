@@ -14,10 +14,14 @@ import types as rtypes
 import _thread
 
 
+from .object import fmt
+
+
 def banner(Cfg, outer):
     txt = time.ctime(time.time()).replace("  ", " ")
     outer(f"{Cfg.name.upper()} since {txt} {Cfg.opts.upper() or 'NOP'}")
-    outer(f"{Cfg.mod}")
+    outer(f"modules: {Cfg.mod}")
+    outer(f'user: {Cfg.user}')
     sys.stdout.flush()
 
 

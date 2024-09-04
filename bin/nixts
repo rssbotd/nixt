@@ -24,12 +24,20 @@ Cfg.mod = ",".join(modnames(face, iface))
 Cfg.user = getpass.getuser()
 
 
+def cprint(txt):
+    print(txt)
+    sys.stdout.flush()
+
+
 def main():
     "main"
-    banner(Cfg, print)
+    banner(Cfg, cprint)
     privileges(Cfg.user)
     pidfile(Cfg.pidfile)
-    init(Cfg.mod, face, iface)
+    started = []
+    for thr in init(Cfg.mod, face, iface):
+        started.append(thr.name)
+    cprint(f"started: {','.join(sorted(started))}")
     forever()
 
 

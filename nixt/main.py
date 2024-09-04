@@ -42,7 +42,9 @@ def init(modstr, *pkgs, disable=None, wait=False):
                 continue
             if "init" not in dir(modi):
                 continue
-            thrs.append(launch(modi.init))
+            thr = launch(modi.init)
+            thr.name = mod
+            thrs.append(thr)
             break
     if wait:
         for thr in thrs:
