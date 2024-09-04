@@ -30,7 +30,7 @@ def enable(outer):
     Client.out = Errors.out = Logging.out = outer
 
 
-def init(modstr, *pkgs, disable=None):
+def init(modstr, *pkgs, disable=None, wait=False):
     "scan modules for commands and classes"
     thrs = []
     for mod in spl(modstr):
@@ -44,6 +44,9 @@ def init(modstr, *pkgs, disable=None):
                 continue
             thrs.append(launch(modi.init))
             break
+    if wait:
+        for thr in thrs:
+            thr.join()
     return thrs
 
 

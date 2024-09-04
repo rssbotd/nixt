@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "nixt"
 description = "NIXT"
-version = "30"
+version = "31"
 authors = [
     {name = "Bart Thate", email = "rssbotd@gmail.com"},
 ]
@@ -40,6 +40,7 @@ script-files = [
 packages = [
     'nixt',
     'nixt.modules',
+    'nixt.user'
 ]
 zip-safe=true
 

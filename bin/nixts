@@ -10,16 +10,15 @@ import getpass
 
 
 from nixt.config  import Config
+from nixt.main    import init, wrap
+from nixt.modules import face
+from nixt.user    import iface
+from nixt.utils   import forever, pidfile, privileges
 
 
 Cfg = Config()
-Cfg.mod = "cmd,err,irc,rss,thr"
+Cfg.mod = ",".join(modnames(face, iface)
 Cfg.user = getpass.getuser()
-
-
-from nixt.main    import init, wrap
-from nixt.modules import face
-from nixt.utils   import forever, pidfile, privileges
 
 
 initer = init
@@ -29,7 +28,9 @@ def main():
     "main"
     privileges(Cfg.user)
     pidfile(Cfg.pidfile)
-    initer(Cfg.mod, face)
+    for thr in initer(Cfg.mod, face, iface):
+        print(thr)
+        thr.join()
     forever()
 
 

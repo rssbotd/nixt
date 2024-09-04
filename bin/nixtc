@@ -10,25 +10,24 @@ import os
 import readline
 import sys
 import termios
+import time
 
 
 sys.path.insert(0, os.getcwd())
 
 
 from nixt.config  import Config
-
-
-Cfg = Config()
-Cfg.mod = "cmd,err,mod,thr"
-
-
 from nixt.console import Console
 from nixt.errors  import errors
 from nixt.main    import cmnd, enable, init
 from nixt.modules import face
 from nixt.parse   import parse
 from nixt.user    import iface
-from nixt.utils   import forever
+from nixt.utils   import forever, modnames
+
+
+Cfg = Config()
+Cfg.mod = ",".join(modnames(face, iface))
 
 
 def wrap(func):
@@ -51,10 +50,12 @@ def main():
     "main"
     parse(Cfg, " ".join(sys.argv[1:]))
     if "v" in Cfg.opts:
+        print(f"{Cfg.name.upper()} since {time.ctime(time.time())} {Cfg.opts.upper()}")
         enable(print)
-    csl = Console(print, input)
     if "i" in Cfg.opts:
-        init(Cfg.mod, face, iface)
+        for thr in init(Cfg.mod, face, iface, wait="v" in Cfg.opts):
+            thr.join()
+    csl = Console(print, input)
     csl.start()
     forever()
 
