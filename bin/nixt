@@ -30,7 +30,7 @@ def srv(event):
     path = os.path.normpath(f"/home/{username}/.local/bin/")
     txt = f"""[Unit]
 Description={Cfg.name.upper()}
-After=network.target
+After=network-online.target
 
 [Service]
 Type=simple

@@ -8,9 +8,17 @@ import datetime
 import os
 import pathlib
 import pwd
+import sys
 import time
 import types as rtypes
 import _thread
+
+
+def banner(Cfg, outer):
+    txt = time.ctime(time.time()).replace("  ", " ")
+    outer(f"{Cfg.name.upper()} since {txt} {Cfg.opts.upper() or 'NOP'}")
+    outer(f"{Cfg.mod}")
+    sys.stdout.flush()
 
 
 def cdir(pth):
@@ -99,8 +107,8 @@ def modnames(*args):
     "return module names."
     res = []
     for arg in args:
-        res.extend([x for x in dir(arg) if not x.startswith("__")])
-    return sorted(res)
+        res.extend({x for x in dir(arg) if not x.startswith("__")})
+    return sorted({x for x in res})
 
 
 def named(obj):

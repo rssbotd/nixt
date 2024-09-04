@@ -13,14 +13,18 @@ import sys
 
 from nixt.config  import Config
 from nixt.main    import init, wrap
-from nixt.modules import face
-from nixt.user    import iface
-from nixt.utils   import forever, pidfile, privileges
+from nixt.utils   import forever, modnames, pidfile, privileges
 
 
 Cfg = Config()
-Cfg.mod = ",".join(modnames(face, iface))
 Cfg.user = getpass.getuser()
+
+
+from nixt.modules import face
+from nixt.user    import iface
+
+
+Cfg.mod = ",".join(modnames(face, iface))
 
 
 def daemon(verbose=False):

@@ -9,6 +9,7 @@ import os
 
 
 from .default import Default
+from .workdir import Workdir
 
 
 class Config(Default):
@@ -24,6 +25,9 @@ class Config(Default):
         self.name = Config.name
         self.wdr  = Config.wdr
         self.pidfile = Config.pidfile
+
+
+Workdir.wdr = Config.wdr
 
 
 def __dir__():
