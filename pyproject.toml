@@ -51,17 +51,12 @@ zip-safe=true
 ]
 
 "share/nixt/examples" = [
-    "examples/cmd.py",
-    "examples/err.py",
     "examples/iface.py",
     "examples/irc.py",
     "examples/log.py",
-    "examples/mod.py",
     "examples/req.py",
     "examples/rss.py",
-    "examples/tdo.py",
-    "examples/thr.py",
-    "examples/upt.py"
+    "examples/tdo.py"
 ]
 
 
