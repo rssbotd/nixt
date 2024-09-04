@@ -34,7 +34,10 @@ from nixt.modules import face
 from nixt.user    import iface
 
 
-iface.rss.DEBUG = True
+try:
+    iface.rss.DEBUG = True
+except AttributeError:
+    pass
 
 
 LAP = 1
