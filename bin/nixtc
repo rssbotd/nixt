@@ -27,6 +27,7 @@ from nixt.errors  import errors
 from nixt.main    import cmnd, enable, init
 from nixt.modules import face
 from nixt.parse   import parse
+from nixt.user    import iface
 from nixt.utils   import forever
 
 
@@ -53,7 +54,7 @@ def main():
         enable(print)
     csl = Console(print, input)
     if "i" in Cfg.opts:
-        init(Cfg.mod, face)
+        init(Cfg.mod, face, iface)
     csl.start()
     forever()
 

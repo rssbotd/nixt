@@ -17,7 +17,6 @@ Cfg.mod = "cmd,err,irc,rss,thr"
 Cfg.user = getpass.getuser()
 
 
-from nixt.errors  import errors
 from nixt.main    import init, wrap
 from nixt.modules import face
 from nixt.utils   import forever, pidfile, privileges
