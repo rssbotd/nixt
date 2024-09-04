@@ -11,8 +11,22 @@ from ..config import Config
 nme = Config.name
 
 
-DESCR = "NIXT does nothing, write your own commands!"
-TXT = f"""SYNOPSIS
+DESCR = "{nme.upper()} does nothing, write your own commands!"
+
+
+def hlp(event):
+    "show help."
+    args = event.args
+    if args:
+        global nme
+        nme = args[0]
+        if len(args) > 1:
+            DESCR = " ".join(event.args[1:])
+    TXT = f"""NAME
+
+    {nme.upper()}
+
+SYNOPSIS
 
     {nme} <cmd> [key=val] [key==val]
     {nme}c
@@ -52,7 +66,7 @@ USAGE
 
     start daemon
 
-    $ {nme}td
+    $ {nme}d
     $
 
     start as service
@@ -91,11 +105,8 @@ AUTHOR
 
 COPYRIGHT
 
-    {nme.upper()} is Public Domain."""
-
-
-def hlp(event):
-    "show help."
+    {nme.upper()} is Public Domain.
+"""
     event.reply(TXT)
 
 
