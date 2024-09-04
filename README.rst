@@ -43,6 +43,7 @@ INSTALL
     $ pipx install nixt
     $ pipx ensurepath
 
+
 USAGE
 
 ::
@@ -77,6 +78,7 @@ USAGE
     $ nixts
     <waits till ctrl-c>    
 
+
 COMMANDS
 
 ::
@@ -98,6 +100,7 @@ SYSTEMD
     $ sudo systemctl enable nixt --now
 
     joins #nixt on localhost
+
 
 FILES
 
