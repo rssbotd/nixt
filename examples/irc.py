@@ -38,8 +38,8 @@ def init():
     "initialize a irc bot."
     irc = IRC()
     irc.start()
-    irc.events.joined.wait()
-    debug(f'started irc {fmt(irc.cfg, skip="password")}')
+    irc.events.ready.wait()
+    debug(f'{fmt(irc.cfg, skip="password")}')
     return irc
 
 
