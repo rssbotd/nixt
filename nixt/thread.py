@@ -40,9 +40,9 @@ class Thread(threading.Thread):
         "return qsize"
         return self.queue.qsize()
 
-    def join(self):
+    def join(self, timeout=None):
         "join this thread."
-        super().join()
+        super().join(timeout)
         return self._result
 
     def run(self):

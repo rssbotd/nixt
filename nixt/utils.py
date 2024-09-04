@@ -8,21 +8,16 @@ import datetime
 import os
 import pathlib
 import pwd
-import sys
 import time
 import types as rtypes
 import _thread
 
 
-from .object import fmt
-
-
-def banner(Cfg, outer):
+def banner(cfg, outer):
+    "show banner."
     txt = time.ctime(time.time()).replace("  ", " ")
-    outer(f"{Cfg.name.upper()} since {txt} {Cfg.opts.upper() or 'NOP'}")
-    outer(f"modules: {Cfg.mod}")
-    outer(f'user: {Cfg.user}')
-    sys.stdout.flush()
+    outer(f"{cfg.name.upper()} since {txt} {cfg.opts.upper() or 'NOP'}")
+    outer(f"modules: {cfg.mod}")
 
 
 def cdir(pth):
@@ -112,7 +107,7 @@ def modnames(*args):
     res = []
     for arg in args:
         res.extend({x for x in dir(arg) if not x.startswith("__")})
-    return sorted({x for x in res})
+    return sorted(set(res))
 
 
 def named(obj):
@@ -175,6 +170,7 @@ def strip(pth, nmr=3):
 
 def __dir__():
     return (
+        'banner',
         'cdir',
         'fntime',
         'forever',

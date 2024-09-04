@@ -8,12 +8,11 @@
 
 import getpass
 import sys
-import time
 
 
 from nixt.config  import Config
 from nixt.errors  import Errors, errors
-from nixt.main    import enable, init, wrap
+from nixt.main    import init, wrap
 from nixt.modules import face
 from nixt.user    import iface
 from nixt.utils   import banner, forever, modnames, pidfile, privileges
@@ -25,6 +24,7 @@ Cfg.user = getpass.getuser()
 
 
 def cprint(txt):
+    "flush after print."
     print(txt)
     sys.stdout.flush()
 
