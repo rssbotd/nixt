@@ -1,13 +1,18 @@
-NAME
+N I X T
+=======
 
-    ::
+NAME
+~~~~
+
+::
 
         nixt - NIXT
 
 
 SYNOPSIS
+~~~~~~~~
 
-    ::
+::
 
         nixt  <cmd> [key=val] [key==val]
         nixtc [-i] [-v]
@@ -15,8 +20,9 @@ SYNOPSIS
         nixts
 
 DESCRIPTION
+~~~~~~~~~~~
 
-    ::
+::
 
         NIXT is python3 code to program objects in a functional way. It
         provides a base Object class that has only dunder methods, all
@@ -37,14 +43,16 @@ DESCRIPTION
 
 
 INSTALL
+~~~~~~~
 
-    ::
+::
 
         $ pipx install nixt
         $ pipx ensurepath
 
 
 USAGE
+~~~~~
 
     ::
 
