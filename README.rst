@@ -1,18 +1,14 @@
 N I X T
 =======
 
-######
-
-NAME
-~~~~
+**NAME**
 
 ::
 
     nixt - NIXT
 
 
-SYNOPSIS
-~~~~~~~~
+**SYNOPSIS**
 
 ::
 
@@ -22,8 +18,7 @@ SYNOPSIS
     nixts
 
 
-DESCRIPTION
-~~~~~~~~~~~
+**DESCRIPTION**
 
 ::
 
@@ -45,8 +40,7 @@ DESCRIPTION
     parser to parse commandline options and values, etc.
 
 
-INSTALL
-~~~~~~~
+**INSTALL**
 
 ::
 
@@ -54,8 +48,7 @@ INSTALL
     $ pipx ensurepath
 
 
-USAGE
-~~~~~
+**USAGE**
 
 ::
 
@@ -90,8 +83,7 @@ USAGE
     <waits till ctrl-c>    
 
 
-COMMANDS
-~~~~~~~~
+**COMMANDS**
 
 ::
 
@@ -102,8 +94,7 @@ COMMANDS
     upt - show uptime
 
 
-SYSTEMD
-~~~~~~~
+**SYSTEMD**
 
 ::
 
@@ -115,8 +106,7 @@ SYSTEMD
     joins #nixt on localhost
 
 
-FILES
-~~~~~
+**FILES**
 
 ::
 
@@ -128,16 +118,14 @@ FILES
     ~/.local/pipx/venvs/nixt/
 
 
-AUTHOR
-~~~~~~
+**AUTHOR**
 
 ::
 
     Bart Thate <rssbotd@gmail.com>
 
 
-COPYRIGHT
-~~~~~~~~~
+**COPYRIGHT**
 
 ::
 
