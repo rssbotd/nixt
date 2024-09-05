@@ -1,6 +1,8 @@
 NAME
 
-``NIXT`` - NIXT
+::
+
+    nixt - NIXT
 
 
 SYNOPSIS
@@ -14,23 +16,24 @@ SYNOPSIS
 
 DESCRIPTION
 
+::
 
-NIXT is python3 code to program objects in a functional way. It
-provides a base Object class that has only dunder methods, all
-methods are factored out into functions with the objects as the first
-argument. It is called Object Programming (OP), OOP without the
-oriented.
+    NIXT is python3 code to program objects in a functional way. It
+    provides a base Object class that has only dunder methods, all
+    methods are factored out into functions with the objects as the first
+    argument. It is called Object Programming (OP), OOP without the
+    oriented.
 
-NIXT allows for easy json save//load to/from disk of objects. It
-provides an "clean namespace" Object class that only has dunder
-methods, so the namespace is not cluttered with method names. This
-makes storing and reading to/from json possible.
+    NIXT allows for easy json save//load to/from disk of objects. It
+    provides an "clean namespace" Object class that only has dunder
+    methods, so the namespace is not cluttered with method names. This
+    makes storing and reading to/from json possible.
 
-NIXT has all you need to program a unix cli program, such as disk
-perisistence for configuration files, event handler to handle the
-client/server connection, code to introspect modules for
-commands, deferred exception handling to not crash on an error, a
-parser to parse commandline options and values, etc.
+    NIXT has all you need to program a unix cli program, such as disk
+    perisistence for configuration files, event handler to handle the
+    client/server connection, code to introspect modules for
+    commands, deferred exception handling to not crash on an error, a
+    parser to parse commandline options and values, etc.
 
 
 INSTALL
@@ -43,33 +46,34 @@ INSTALL
 
 USAGE
 
+::
 
-without any argument the bot does nothing::
+    without any argument the bot does nothing
 
     $ nixt
     $
 
-see list of commands::
+    see list of commands
 
     $ nixt cmd
     cmd,err,mod,srv,thr
 
-start a console::
+    start a console
 
     $ nixtc
     >
 
-use -i to run init on modules::
+    use -i to run init on modules
 
     $ nixtc -i
     >
 
-start daemon::
+    start daemon
 
     $ nixtd
     $
 
-start as service::
+    start as service
 
     $ nixts
     <waits till ctrl-c>    
@@ -89,10 +93,13 @@ COMMANDS
 
 SYSTEMD
 
+::
 
-put the following in /etc/systemd/system/nixt.service and replace
-{name} with the user running pipx::
+    put the following in /etc/systemd/system/nixt.service and replace
+    {name} with the user running pipx
 
+
+::
 
     [Unit]
     Description={name}
@@ -108,12 +115,13 @@ put the following in /etc/systemd/system/nixt.service and replace
     WantedBy=multi-user.target
 
 
-then run the following::
+::
+    then run the following::
 
     $ sudo systemctl enable nixt --now
 
 
-joins #nixt on localhost
+    joins #nixt on localhost
 
 
 FILES
@@ -130,11 +138,13 @@ FILES
 
 AUTHOR
 
+::
 
-Bart Thate <rssbotd@gmail.com>
+    Bart Thate <rssbotd@gmail.com>
 
 
 COPYRIGHT
 
+::
 
-NIXT is Public Domain.
+    NIXT is Public Domain.
