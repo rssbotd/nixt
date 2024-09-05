@@ -10,22 +10,18 @@ from ..command import Commands
 from ..config  import Config
 
 
-nme = Config.name
-
-
 def hlp(event):
     "show help."
+    nme = Config.name
     args = event.args
-    title = docstr.split("\n")[0]
-    DESCR = "\n".join(docstr.split("\n")[1:])
+    title = docstr.split("\n", maxsplit=1)[0]
+    descr = "\n".join(docstr.split("\n")[1:])
     if args:
-        global nme
         nme = args[0]
         if len(args) > 1:
             title = " ".join(args[1:])
-    DESCR = DESCR.strip()
-    AUTHOR = author
-    TXT = f"""NAME
+    descr = descr.strip()
+    txt = f"""NAME
 
     {nme.upper()} - {title}
 
@@ -38,7 +34,7 @@ SYNOPSIS
 
 DESCRIPTION
 
-    {DESCR}
+    {descr}
 
 INSTALL
 
@@ -104,13 +100,13 @@ FILES
 
 AUTHOR
 
-    {AUTHOR}
+    {author}
 
 COPYRIGHT
 
     {nme.upper()} is Public Domain.
 """
-    event.reply(TXT)
+    event.reply(txt)
 
 
 hlp.target = "cli"
