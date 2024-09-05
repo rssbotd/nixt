@@ -6,18 +6,43 @@
 "cli"
 
 
+import getpass
 import sys
 
 
+from nixt.command import Commands
 from nixt.config  import Config
 from nixt.errors  import Errors, errors
 from nixt.main    import cmnd, enable, init, wrap
 from nixt.modules import face
-from nixt.user    import iface
 from nixt.parse   import parse
 
 
 Cfg = Config()
+TXT = """[Unit]
+Description=NIXT
+After=network-online.target
+
+[Service]
+Type=simple
+User=%s
+Group=%s
+ExecStart=/home/%s/.local/bin/nixts
+
+[Install]
+WantedBy=multi-user.target"""
+
+
+def srv(event):
+    "create service file (pipx)."
+    if event.args:
+        name = event.args[0]
+    else:
+        name  = getpass.getuser()
+    event.reply(TXT % (name, name, name))
+
+
+Commands.add(srv)
 
 
 def main():

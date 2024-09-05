@@ -107,27 +107,10 @@ SYSTEMD
 
 ::
 
-    put the following in /etc/systemd/system/nixt.service and replace
-    {name} with the user running pipx
-
-
-    [Unit]
-    Description={name}
-    After=network-online.target
-
-    [Service]
-    Type=simple
-    User={name}
-    Group={name}
-    ExecStart=/home/{user}/.local/bin/nixts
-
-    [Install]
-    WantedBy=multi-user.target
-
-
-    then run the following
-
+    $ nixt srv > nixt.service
+    $ sudo mv nixt.service /etc/systemd/system/
     $ sudo systemctl enable nixt --now
+
 
     joins #nixt on localhost
 
