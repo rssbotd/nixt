@@ -1,8 +1,6 @@
 NAME
 
-::
-
-    NIXT - NIXT
+    ``nixt`` - NIXT
 
 
 SYNOPSIS
@@ -16,7 +14,6 @@ SYNOPSIS
 
 DESCRIPTION
 
-::
 
     NIXT is python3 code to program objects in a functional way. It
     provides a base Object class that has only dunder methods, all
@@ -46,34 +43,33 @@ INSTALL
 
 USAGE
 
-::
 
-    without any argument the bot does nothing
+without any argument the bot does nothing::
 
     $ nixt
     $
 
-    see list of commands
+see list of commands::
 
     $ nixt cmd
     cmd,err,mod,srv,thr
 
-    start a console
+start a console::
 
     $ nixtc
     >
 
-    use -i to run init on modules
+use -i to run init on modules::
 
     $ nixtc -i
     >
 
-    start daemon
+start daemon::
 
     $ nixtd
     $
 
-    start as service
+start as service::
 
     $ nixts
     <waits till ctrl-c>    
