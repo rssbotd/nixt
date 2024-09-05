@@ -4,27 +4,30 @@
 "help"
 
 
+from ..        import __doc__ as docstr
+from ..        import __author__ as author
 from ..command import Commands
-from ..config import Config
+from ..config  import Config
 
 
 nme = Config.name
 
 
-DESCR = "{nme.upper()} does nothing, write your own commands!"
-
-
 def hlp(event):
     "show help."
     args = event.args
+    title = docstr.split("\n")[0]
+    DESCR = "\n".join(docstr.split("\n")[1:])
     if args:
         global nme
         nme = args[0]
         if len(args) > 1:
-            DESCR = " ".join(event.args[1:])
+            title = " ".join(args[1:])
+    DESCR = DESCR.strip()
+    AUTHOR = author
     TXT = f"""NAME
 
-    {nme.upper()}
+    {nme.upper()} - {title}
 
 SYNOPSIS
 
@@ -101,7 +104,7 @@ FILES
 
 AUTHOR
 
-    Bart Thate <rssbotd@gmail.com>
+    {AUTHOR}
 
 COPYRIGHT
 

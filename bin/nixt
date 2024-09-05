@@ -10,6 +10,7 @@ import sys
 
 
 from nixt.config  import Config
+from nixt.errors  import Errors, errors
 from nixt.main    import cmnd, enable, init, wrap
 from nixt.modules import face
 from nixt.user    import iface
@@ -31,4 +32,6 @@ def main():
 
 
 if __name__ == "__main__":
+    Errors.out = print
     wrap(main)
+    errors()
