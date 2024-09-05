@@ -88,6 +88,7 @@ USAGE
 
 
 COMMANDS
+~~~~~~~~
 
     ::
 
@@ -99,6 +100,7 @@ COMMANDS
 
 
 SYSTEMD
+~~~~~~~
 
     ::
 
@@ -128,6 +130,7 @@ SYSTEMD
 
 
 FILES
+~~~~~
 
     ::
 
@@ -140,6 +143,7 @@ FILES
 
 
 AUTHOR
+~~~~~~
 
     ::
 
@@ -147,6 +151,7 @@ AUTHOR
 
 
 COPYRIGHT
+~~~~~~~~~
 
     ::
 
