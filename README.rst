@@ -93,30 +93,31 @@ COMMANDS
 
 SYSTEMD
 
-    put the following in /etc/systemd/system/nixt.service and replace
-    {name} with the user running pipx::
+
+put the following in /etc/systemd/system/nixt.service and replace
+{name} with the user running pipx::
 
 
-     [Unit]
-     Description={name}
-     After=network-online.target
+    [Unit]
+    Description={name}
+    After=network-online.target
 
-     [Service]
-     Type=simple
-     User={name}
-     Group={name}
-     ExecStart=/home/{user}/.local/bin/nixts
+    [Service]
+    Type=simple
+    User={name}
+    Group={name}
+    ExecStart=/home/{user}/.local/bin/nixts
 
-     [Install]
-     WantedBy=multi-user.target
-
-
-    then run the following::
-
-     $ sudo systemctl enable nixt --now
+    [Install]
+    WantedBy=multi-user.target
 
 
-    joins #nixt on localhost
+then run the following::
+
+    $ sudo systemctl enable nixt --now
+
+
+joins #nixt on localhost
 
 
 FILES
