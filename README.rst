@@ -114,12 +114,15 @@ SYSTEMD
     [Install]
     WantedBy=multi-user.target
 
+::
+
+    then run the following
 
 ::
-    then run the following::
 
     $ sudo systemctl enable nixt --now
 
+::
 
     joins #nixt on localhost
 
