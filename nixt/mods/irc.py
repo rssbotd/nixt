@@ -176,7 +176,6 @@ class IRC(Client, Output):
     def __init__(self):
         Client.__init__(self)
         Output.__init__(self)
-        Broker.register(self)
         self.buffer = []
         self.cfg = Config()
         self.channels = []

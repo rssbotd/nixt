@@ -23,6 +23,11 @@ classifiers = [
     'Topic :: Utilities'
 ]
 
+[project.script]
+"nixt" = "nixt.__main__:wrapped"
+"nixtc" = "nixt.console:wraps"
+"nixtd" = "nixt.daemon:wrapping"
+"nixts" = "nixt.service:wrapper"
 
 [project.urls]
 "home" = "https://pypi.org/project/nixt"
@@ -31,12 +36,6 @@ classifiers = [
 
 
 [tools.setuptools]
-script-files = [
-    'bin/nixt',
-    'bin/nixtc',
-    'bin/nixtd',
-    'bin/nixts'
-]
 packages = [
     'nixt',
     'nixt.mods',
