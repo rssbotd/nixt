@@ -176,7 +176,8 @@ def command(bot, evt):
             bot.display(evt)
         except Exception as ex:
             later(ex)
-        evt.ready()
+        if "ready" in dir(evt):
+            evt.ready()
 
 
 "utilities"

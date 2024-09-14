@@ -23,8 +23,8 @@ classifiers = [
     'Topic :: Utilities'
 ]
 
-[project.script]
-"nixt" = "nixt.__main__:wrapped"
+[project.scripts]
+"nixt"  = "nixt.__main__:wrapped"
 "nixtc" = "nixt.console:wraps"
 "nixtd" = "nixt.daemon:wrapping"
 "nixts" = "nixt.service:wrapper"
