@@ -15,12 +15,12 @@ import time
 sys.path.insert(0, os.getcwd())
 
 
-from .errors import errors
-from .thread import launch
-from .object import Default
-from .main   import Broker, Client, Config, Event, command, debug
-from .main   import enable, forever, initer, modnames, parse, spl
-from .mods   import face
+from .errors  import errors
+from .thread  import launch
+from .object  import Default
+from .main    import Broker, Client, Config, Event, command, debug
+from .main    import enable, forever, initer, modnames, parse, spl
+from .modules import face
 
 
 Cfg = Config()

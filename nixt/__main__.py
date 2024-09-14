@@ -15,11 +15,11 @@ import termios
 sys.path.insert(0, os.getcwd())
 
 
-from .errors import errors
-from .object import Default, construct, fmt
-from .main   import Broker, Client, Commands, Config, Event
-from .main   import command, forever, modnames, parse, wrap
-from .mods   import face
+from .errors  import errors
+from .object  import Default, construct, fmt
+from .main    import Broker, Client, Commands, Config, Event
+from .main    import command, forever, modnames, parse, wrap
+from .modules import face
 
 
 Cfg = Config()

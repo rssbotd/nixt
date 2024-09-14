@@ -13,9 +13,9 @@ import sys
 sys.path.insert(0, os.getcwd())
 
 
-from .main import Config, forever, initer, pidfile
-from .main import privileges, wrap
-from .mods import face
+from .main    import Config, forever, initer, pidfile
+from .main    import privileges, wrap
+from .modules import face
 
 
 Cfg = Config()
