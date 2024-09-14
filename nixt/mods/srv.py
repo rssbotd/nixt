@@ -7,7 +7,7 @@
 import getpass
 
 
-from ..main import Commands
+from ..main import Config, Commands
 
 
 def srv(event):
@@ -28,7 +28,7 @@ ExecStart=/home/%s/.local/bin/nixts
 
 [Install]
 WantedBy=multi-user.target"""
-    event.reply(txt % (name.upper(), name, name, name))
+    event.reply(txt % (Config.name.upper(), name, name, name))
 
 
 Commands.add(srv)
