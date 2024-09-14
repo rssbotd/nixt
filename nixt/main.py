@@ -173,9 +173,10 @@ def command(bot, evt):
         try:
             func(evt)
             bot.display(evt)
-        except Exceptions as ex:
+        except Exception as ex:
             later(ex)
         evt.ready()
+
 
 "utilities"
 

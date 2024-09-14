@@ -4,6 +4,9 @@
 "create service file"
 
 
+import getpass
+
+
 from ..main import Commands
 
 
@@ -25,7 +28,7 @@ ExecStart=/home/%s/.local/bin/objbots
 
 [Install]
 WantedBy=multi-user.target"""
-    event.reply(TXT % (Cfg.name.upper(), name, name, name))
+    event.reply(TXT % (name.upper(), name, name, name))
 
 
 Commands.add(srv)

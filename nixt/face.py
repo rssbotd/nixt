@@ -16,3 +16,4 @@ from .object  import *
 from .reactor import *
 from .service import *
 from .thread  import *
+from .workdir import *
