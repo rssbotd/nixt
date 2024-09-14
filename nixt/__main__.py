@@ -15,24 +15,27 @@ import termios
 sys.path.insert(0, os.getcwd())
 
 
-from .thread import errors
+from .errors import errors
 from .object import Default, construct, fmt
 from .main   import Broker, Client, Commands, Config, Event
 from .main   import command, forever, modnames, parse, wrap
 from .mods   import face
 
 
-Cfg = Config("objbot")
+Cfg = Config()
 Cfg.mod = ",".join(modnames(face))
 
 
 class CLI(Client):
+
+    "CLI"
 
     def raw(self, txt):
         print(txt)
 
 
 def wrapped():
+    "wrap main."
     wrap(main)
     errors(print)
 

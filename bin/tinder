@@ -119,7 +119,7 @@ def wrapped(function):
             termios.tcsetattr(sys.stdin.fileno(), termios.TCSADRAIN, old2)
 
 
-def main():
+def mainer():
     "main"
     Cfg.mod = ",".join(modnames(face))
     clt = CLI()
@@ -144,9 +144,9 @@ if __name__ == "__main__":
     nrs = Cfg.index or 1
     NRCOMMAND = len(Commands.cmds) or 1
     if "p" in Cfg.opts:
-        profile.runctx(main.__code__, globals(), locals())
+        profile.runctx(mainer.__code__, globals(), locals())
     else:
-        wrapped(main)
+        wrapped(mainer)
     errors(print)
     if "v" in Cfg.opts:
         endtime = time.time()

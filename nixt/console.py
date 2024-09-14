@@ -15,14 +15,15 @@ import time
 sys.path.insert(0, os.getcwd())
 
 
-from .thread import errors, launch
+from .errors import errors
+from .thread import launch
 from .object import Default
-from .main   import Broker, Client, Config, Event, command, debug, enable
+from .main   import Broker, Client, Config, Event, command, debug
 from .main   import enable, forever, initer, modnames, parse, spl
 from .mods   import face
 
 
-Cfg = Config("objbot")
+Cfg = Config()
 Cfg.mod = "cmd,err,mod,srv,thr"
 
 
@@ -43,10 +44,12 @@ class Console(Client):
         return evt
 
     def raw(self, txt):
+        "print text."
         print(txt)
 
 
 def banner():
+    "show banner."
     tme = time.ctime(time.time()).replace("  ", " ")
     debug(f"{Cfg.name.upper()} since {tme}")
 
@@ -83,6 +86,7 @@ def main():
 
 
 def wraps():
+    "Wrap main."
     wrap(main)
     errors(print)
 

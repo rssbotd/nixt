@@ -1,5 +1,5 @@
 # This file is placed in the Public Domain.
-# pylint: disable=R0903,W0105,W0718,E1102
+# pylint: disable=R,W0105,W0718,E1102
 
 
 "shell"
@@ -59,7 +59,7 @@ class Client(Reactor):
 
     "Client"
 
-    def __init__(self, outer=None):
+    def __init__(self):
         Reactor.__init__(self)
         Broker.register(self)
         self.register("command", command)
@@ -85,8 +85,8 @@ class Config(Default):
 
     "Config"
 
-    def __init__(self, name):
-        self.name    = name
+    def __init__(self, name=None):
+        self.name    = name or Config.__module__.split(".", maxsplit=2)[-2]
         self.wdr     = os.path.expanduser(f"~/.{name}")
         self.pidfile = os.path.join(self.wdr, f"{name}.pid")
         Workdir.wdr  = self.wdr
@@ -107,10 +107,11 @@ class Event(Default):
         self.txt     = ""
 
     def ready(self):
+        "flag event as ready."
         self._ready.set()
 
     def reply(self, txt):
-        "add text to the result"
+        "add text to the result."
         self.result.append(txt)
 
     def wait(self):

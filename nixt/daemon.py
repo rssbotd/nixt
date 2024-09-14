@@ -13,13 +13,12 @@ import sys
 sys.path.insert(0, os.getcwd())
 
 
-from .thread import errors, launch
-from .main   import Config, enable, forever, initer, pidfile
-from .main   import privileges, wrap
-from .mods   import face
+from .main import Config, forever, initer, pidfile
+from .main import privileges, wrap
+from .mods import face
 
 
-Cfg = Config("nixt")
+Cfg = Config()
 Cfg.mod = "cmd,err,mod,irc,rss,thr"
 Cfg.user = getpass.getuser()
 
@@ -47,6 +46,7 @@ def daemon(verbose=False):
 
 ever = forever
 
+
 def main():
     "main"
     daemon()
@@ -57,10 +57,10 @@ def main():
 
 
 def wrapping():
+    "Wrap main."
     wrap(main)
 
 
 if __name__ == "__main__":
     wrapping()
-
     

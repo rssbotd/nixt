@@ -13,12 +13,12 @@ import sys
 sys.path.insert(0, os.getcwd())
 
 
-from .thread import errors
+from .errors import errors
 from .main   import Config, forever, initer, pidfile, privileges, wrap
 from .mods   import face
 
 
-Cfg = Config("nixt")
+Cfg = Config()
 Cfg.user = getpass.getuser()
 Cfg.mod = "cmd,err,mod,irc,rss,thr"
 
@@ -32,9 +32,10 @@ def main():
 
 
 def wrapper():
+    "Wrap main."
     wrap(main)
     errors(print)
-    
+
 
 if __name__ == "__main__":
     wrapper()

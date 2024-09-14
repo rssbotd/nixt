@@ -5,15 +5,13 @@
 "threads"
 
 
-import io
 import queue
 import threading
 import time
-import traceback
 import types as rtypes
 
 
-from .errors import Errors, errors, later
+from .errors import later
 
 
 rpr = object.__repr__

@@ -1,5 +1,5 @@
 # This file is placed in the Public Domain.
-# pylint: disable=W0718
+# pylint: disable=W0212,W0718
 
 
 """reactor
@@ -30,15 +30,14 @@ COPYRIGHT
 """
 
 
-import io
 import queue
 import threading
 import time
-import traceback
 import _thread
 
 
-from .thread import later, launch
+from .errors import later
+from .thread import launch
 
 
 class Reactor:
