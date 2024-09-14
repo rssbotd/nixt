@@ -31,7 +31,7 @@ PACKAGE = [
     'daemon',
     'errors',
     'main',
-    'mods',
+    'modules',
     'object',
     'reactor',
     'service',
