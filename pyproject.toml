@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "nixt"
 description = "NIXT"
-version = "31"
+version = "40"
 authors = [
     {name = "Bart Thate", email = "rssbotd@gmail.com"},
 ]
@@ -39,8 +39,7 @@ script-files = [
 ]
 packages = [
     'nixt',
-    'nixt.modules',
-    'nixt.user'
+    'nixt.mods',
 ]
 zip-safe=true
 
@@ -49,17 +48,6 @@ zip-safe=true
 "share/doc/nixt" = [
     "README.rst",
 ]
-
-"share/nixt/examples" = [
-    "examples/iface.py",
-    "examples/irc.py",
-    "examples/log.py",
-    "examples/req.py",
-    "examples/rss.py",
-    "examples/tdo.py"
-]
-
-
 
 [tool.setuptools.exclude-package-data]
 "*" = [
