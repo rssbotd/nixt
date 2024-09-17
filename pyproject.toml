@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "nixt"
 description = "NIXT"
-version = "40"
+version = "50"
 authors = [
     {name = "Bart Thate", email = "rssbotd@gmail.com"},
 ]
@@ -23,11 +23,6 @@ classifiers = [
     'Topic :: Utilities'
 ]
 
-[project.scripts]
-"nixt"  = "nixt.__main__:wrapped"
-"nixtc" = "nixt.console:wraps"
-"nixtd" = "nixt.daemon:wrapping"
-"nixts" = "nixt.service:wrapper"
 
 [project.urls]
 "home" = "https://pypi.org/project/nixt"
@@ -36,21 +31,13 @@ classifiers = [
 
 
 [tools.setuptools]
+script-files = [
+    'bin/nixt',
+    'bin/nixtc',
+    'bin/nixtd',
+    'bin/nixts'
+]
 packages = [
     'nixt',
     'nixt.moduless',
 ]
-zip-safe=true
-
-
-[tool.setuptools.data-files]
-"share/doc/nixt" = [
-    "README.rst",
-]
-
-[tool.setuptools.exclude-package-data]
-"*" = [
-       "env*",
-       "html*",
-       "test*"
-      ]

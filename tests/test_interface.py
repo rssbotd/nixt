@@ -11,7 +11,9 @@ import sys
 import unittest
 
 
-from nixt.face import *
+from nixt import errors, main, modules, object, persist, runtime
+from nixt import *
+from nixt.object import *
 
 
 import nixt
@@ -25,18 +27,14 @@ PACKAGE = [
     '__loader__',
     '__name__',
     '__package__',
-    '__path__',
+    '__file__',
     '__spec__',
-    'console',
-    'daemon',
     'errors',
     'main',
     'modules',
     'object',
-    'reactor',
-    'service',
-    'thread',
-    'workdir'
+    'persist',
+    'runtime'
 ]
 
 
