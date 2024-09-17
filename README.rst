@@ -83,15 +83,39 @@ N I X T
     <waits till ctrl-c>    
 
 
-**COMMANDS**
+**CONFIGURATION**
+
+
+*irc*
 
 ::
 
-    cmd - commands
-    err - show errors
-    mod - show modules
-    thr - show running threads
-    upt - show uptime
+    $ nixt cfg server=<server>
+    $ nixt cfg channel=<channel>
+    $ nixt cfg nick=<nick>
+
+*sasl*
+
+::
+
+    $ nixt pwd <nsvnick> <nspass>
+    $ nixt cfg password=<frompwd>4
+
+*rss*
+
+::
+ 
+    $ nixt rss <url>
+    $ nixt dpl <url> <item1,item2>
+    $ nixt rem <url>
+    $ nixt nme <url> <name>
+
+*opml*
+
+::
+
+    $ nixt exp
+    $ nixt imp <filename>
 
 
 **SYSTEMD**
@@ -102,8 +126,33 @@ N I X T
     $ sudo mv nixt.service /etc/systemd/system/
     $ sudo systemctl enable nixt --now
 
-
     joins #nixt on localhost
+
+
+**COMMANDS**
+
+
+here is a list of available commands
+
+::
+
+    cfg - irc configuration
+    cmd - commands
+    dpl - sets display items
+    err - show errors
+    exp - export opml (stdout)
+    imp - import opml
+    log - log text
+    mre - display cached output
+    pwd - sasl nickserv name/pass
+    rem - removes a rss feed
+    res - restore deleted feeds
+    req - reconsider
+    rss - add a feed
+    srv - create service file
+    syn - sync rss feeds
+    tdo - add todo item
+    thr - show running threads
 
 
 **FILES**
