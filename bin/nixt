@@ -13,6 +13,9 @@ import sys
 import termios
 
 
+sys.path.insert(0, os.getcwd())
+
+
 from nixt.errors  import errors
 from nixt.object  import Default, construct, fmt
 from nixt.main    import Broker, Client, Commands, Config, Event
