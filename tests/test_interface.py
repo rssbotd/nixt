@@ -11,7 +11,7 @@ import sys
 import unittest
 
 
-from nixt import errors, main, modules, object, persist, runtime
+#from nixt import errors, main, modules, object, persist, runtime
 from nixt import *
 from nixt.object import *
 
