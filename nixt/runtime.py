@@ -12,7 +12,7 @@ import types
 import _thread
 
 
-from .errors  import later
+from .errors import later
 
 
 class Reactor:

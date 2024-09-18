@@ -146,8 +146,6 @@ def enable(outer):
     Logging.out = outer
 
 
-
-
 "utilities"
 
 
