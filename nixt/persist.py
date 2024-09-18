@@ -13,7 +13,8 @@ import time
 import _thread
 
 
-from .object import Default, Object, dump, fqn, load, match, matchkey, search
+from .object import Broker, Default, Object
+from .object import dump, fqn, load, match, matchkey, search
 from .object import update, values
 
 
@@ -23,34 +24,6 @@ disklock = _thread.allocate_lock()
 
 class ReadError(Exception):
     "error reading json file."
-
-
-"broker"
-
-
-class Broker:
-
-    "Broker"
-
-    objs = Object()
-
-    @staticmethod
-    def add(obj):
-        "add object."
-        setattr(Broker.objs, ident(obj), obj)
-
-    @staticmethod
-    def all(type=None):
-        "return all objects."
-        if type:
-            for key in matchkey(type):
-                yield Broker.get(key)
-        return values(Broker.objs)
-
-    @staticmethod
-    def get(orig):
-        "return object by matching repr."
-        return getattr(Broker.objs, orig, None)
 
 
 "workdir"
@@ -99,6 +72,13 @@ def types():
 def whitelist(clz):
     "whitelist classes."
     Workdir.fqns.append(fqn(clz))
+
+
+"cache"
+
+class Cache(Broker):
+
+    "Cache"
 
 
 "utilities"
@@ -226,7 +206,6 @@ def write(obj, pth):
 
 def __dir__():
     return (
-        'Broker',
         'ReadError',
         'Workdir',
         'find',

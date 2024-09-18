@@ -11,8 +11,8 @@ import pwd
 import time
 
 
-from .persist import Broker, Workdir, ident
-from .object  import Default
+from .persist import Workdir, ident
+from .object  import Broker, Default
 from .runtime import Reactor, launch
 
 
@@ -25,7 +25,7 @@ class Client(Reactor):
 
     def __init__(self):
         Reactor.__init__(self)
-        Broker.add(self)
+        Broker.add(self, repr(self))
         self.register("command", command)
 
     def display(self, evt):
@@ -289,7 +289,6 @@ def wrap(func):
 
 def __dir__():
     return (
-        'Broker',
         'Client',
         'Comamnds', 
         'Config',

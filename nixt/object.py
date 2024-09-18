@@ -31,12 +31,46 @@ class Object:
         return str(self.__dict__)
 
 
+"broker"
+
+
+class Broker:
+
+    "Broker"
+
+    objs = Object()
+
+    @staticmethod
+    def add(obj, key):
+        "add object."
+        setattr(Broker.objs, key, obj)
+
+    @staticmethod
+    def all(type=None):
+        "return all objects."
+        if type:
+            for key in matchkey(type):
+                yield Broker.get(key)
+        return values(Broker.objs)
+
+    @staticmethod
+    def get(orig):
+        "return object by matching repr."
+        return getattr(Broker.objs, orig, None)
+
+
+"default"
+
+
 class Default(Object):
 
     "Default"
 
     def __getattr__(self, key):
         return self.__dict__.get(key, "")
+
+
+"methods"
 
 
 def construct(obj, *args, **kwargs):
@@ -277,6 +311,7 @@ def dumps(*args, **kw):
 
 def __dir__():
     return (
+        'Broker',
         'Default',
         'Object',
         'construct',
