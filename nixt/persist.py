@@ -13,7 +13,8 @@ import time
 import _thread
 
 
-from .object import Default, dump, fqn, load, match, search, update
+from .object import Default, Object, dump, fqn, load, match, matchkey, search
+from .object import update, values
 
 
 lock = _thread.allocate_lock()
@@ -31,27 +32,25 @@ class Broker:
 
     "Broker"
 
-    objs = []
+    objs = Object()
 
     @staticmethod
-    def all():
+    def add(obj):
+        "add object."
+        setattr(Broker.objs, ident(obj), obj)
+
+    @staticmethod
+    def all(type=None):
         "return all objects."
-        return Broker.objs
+        if type:
+            for key in matchkey(type):
+                yield Broker.get(key)
+        return values(Broker.objs)
 
     @staticmethod
     def get(orig):
         "return object by matching repr."
-        res = None
-        for obj in Broker.objs:
-            if repr(obj) == orig:
-                res = obj
-                break
-        return res
-
-    @staticmethod
-    def register(obj):
-        "add bot."
-        Broker.objs.append(obj)
+        return getattr(Broker.objs, orig, None)
 
 
 "workdir"
@@ -206,9 +205,9 @@ def read(obj, pth):
 
 def sync(obj, pth=None):
     "sync object to disk."
+    if pth is None:
+        pth = ident(obj)
     with disklock:
-        if pth is None:
-            pth = ident(obj)
         pth2 = store(pth)
         write(obj, pth2)
         return pth

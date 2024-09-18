@@ -126,8 +126,7 @@ def matchkey(obj, txt):
     "check if object has matching keys."
     for key in keys(obj):
         if txt in key:
-            return True
-    return False
+            yield key
 
 
 def match(obj, selector):
