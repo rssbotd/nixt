@@ -18,11 +18,14 @@ import _thread
 sys.path.insert(0, os.getcwd())
 
 
-from nixt.face import *
-from nixt.mods import face
+from nixt.errors  import *
+from nixt.main    import *
+from nixt.object  import *
+from nixt.modules import face
+from nixt.persist import *
 
 
-Cfg         = Config("objbot")
+Cfg         = Config()
 Cfg.mod     = ",".join(modnames(face))
 Cfg.debug   = True
 Cfg.name    = "tinder"
@@ -66,11 +69,6 @@ class CLI(Client):
 
     "command line interface."
 
-    def __init__(self):
-        Client.__init__(self)
-        Broker.register(self)
-        self.register("command", command)
-
     def raw(self, txt):
         if "v" in Cfg.opts:
             print(txt)
@@ -78,11 +76,9 @@ class CLI(Client):
 
 def consume(evts):
     "wait for events."
-    res = []
     for evt in evts:
-        evt.wait()
-        res.append(evt)
-    return res
+        if evt._thr:
+            evt._thr.join()
 
 
 def payload(clt):
@@ -121,18 +117,6 @@ def wrapped(function):
 
 def mainer():
     "main"
-    Cfg.mod = ",".join(modnames(face))
-    clt = CLI()
-    launch(clt.start)
-    thrs = []
-    for _nr in range(nrs):
-        thrs.append(launch(payload, clt))
-    for thr in thrs:
-        thr.join()
-    consume(events)
-
-
-if __name__ == "__main__":
     Workdir.wdr = ".test"
     parse(Cfg, " ".join(sys.argv[1:]))
     if "v" in Cfg.opts:
@@ -142,15 +126,24 @@ if __name__ == "__main__":
             shutil.rmtree(Workdir.wdr)
     skel()
     nrs = Cfg.index or 1
-    NRCOMMAND = len(Commands.cmds) or 1
-    if "p" in Cfg.opts:
-        profile.runctx(mainer.__code__, globals(), locals())
-    else:
-        wrapped(mainer)
-    errors(print)
+    clt = CLI()
+    clt.start()
+    thrs = []
+    for _nr in range(nrs):
+        thrs.append(launch(payload, clt))
+    for thr in thrs:
+        thr.join()
+    consume(events)
+    clt.wait()
     if "v" in Cfg.opts:
         endtime = time.time()
         lap = laps(endtime-STARTTIME)
         percall = (endtime-STARTTIME)/(nrs*NRCOMMAND)
         print(f"{lap} {nrs} {NRCOMMAND} {percall}")
+
+
+if __name__ == "__main__":
+    NRCOMMAND = len(Commands.cmds) or 1
+    mainer()
+    errors(print)
     sys.exit()
