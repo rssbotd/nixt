@@ -17,7 +17,7 @@ sys.path.insert(0, os.getcwd())
 
 
 from nixt.errors  import errors
-from nixt.main    import Broker, Client, Config, Event, command, debug
+from nixt.main    import Client, Config, Event, command, debug
 from nixt.main    import enable, forever, initer, modnames, parse, spl
 from nixt.modules import face
 from nixt.object  import Default

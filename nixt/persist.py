@@ -24,6 +24,39 @@ class ReadError(Exception):
     "error reading json file."
 
 
+"broker"
+
+
+class Broker:
+
+    "Broker"
+
+    objs = []
+
+    @staticmethod
+    def all():
+        "return all objects."
+        return Broker.objs
+
+    @staticmethod
+    def get(orig):
+        "return object by matching repr."
+        res = None
+        for obj in Broker.objs:
+            if repr(obj) == orig:
+                res = obj
+                break
+        return res
+
+    @staticmethod
+    def register(obj):
+        "add bot."
+        Broker.objs.append(obj)
+
+
+"workdir"
+
+
 class Workdir:
 
     "Workdir"
@@ -194,6 +227,7 @@ def write(obj, pth):
 
 def __dir__():
     return (
+        'Broker',
         'ReadError',
         'Workdir',
         'find',
