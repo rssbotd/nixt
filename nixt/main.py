@@ -11,37 +11,16 @@ import pwd
 import time
 
 
+from .broker  import Broker
 from .persist import Workdir, ident
 from .object  import Default, Object, matchkey, values
-from .runtime import Reactor, launch
+from .run     import Reactor, launch
 
 
 STARTTIME = time.time()
 
 
-class Broker:
-
-    "Broker"
-
-    objs = Object()
-
-    @staticmethod
-    def add(obj, key):
-        "add object."
-        setattr(Broker.objs, key, obj)
-
-    @staticmethod
-    def all(type=None):
-        "return all objects."
-        if type:
-            for key in matchkey(Broker.objs, type):
-                yield Broker.get(key)
-        return values(Broker.objs)
-
-    @staticmethod
-    def get(orig):
-        "return object by matching repr."
-        return getattr(Broker.objs, orig, None)
+"client"
 
 
 class Client(Reactor):
@@ -65,6 +44,9 @@ class Client(Reactor):
     def raw(self, txt):
         "print to screen."
         raise NotImplementedError
+
+
+"commands"
 
 
 class Commands:
@@ -91,6 +73,9 @@ def command(bot, evt):
         bot.display(evt)
 
 
+"config"
+
+
 class Config(Default):
 
     "Config"
@@ -104,6 +89,9 @@ class Config(Default):
         self.wdr = Config.wdr
         self.pidfile = Config.pidfile
         Workdir.wdr = self.wdr
+
+
+"event"
 
 
 class Event(Default):
@@ -120,6 +108,9 @@ class Event(Default):
     def reply(self, txt):
         "add text to the result."
         self.result.append(txt)
+
+
+"logging"
 
 
 class Logging:
@@ -314,7 +305,6 @@ def wrap(func):
 
 def __dir__():
     return (
-        'Broker',
         'Client',
         'Comamnds', 
         'Config',

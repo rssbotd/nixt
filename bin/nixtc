@@ -16,12 +16,11 @@ import time
 sys.path.insert(0, os.getcwd())
 
 
-from nixt.errors  import errors
-from nixt.main    import Client, Config, Event, command, debug
-from nixt.main    import enable, forever, initer, modnames, parse, spl
-from nixt.modules import face
-from nixt.object  import Default
-from nixt.runtime import launch
+from nixt.main   import Client, Config, Event, command, debug
+from nixt.main   import enable, forever, initer, modnames, parse, spl
+from nixt.mods   import face
+from nixt.object import Default
+from nixt.run    import errors, launch
 
 
 Cfg = Config()
