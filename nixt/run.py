@@ -13,9 +13,6 @@ import types
 import _thread
 
 
-from .procs import run
-
-
 "errors"
 
 
@@ -69,8 +66,7 @@ class Reactor:
             return
         if "target" in dir(func) and func.target not in str(self).lower():
             return
-        #evt._thr = launch(func, self, evt)
-        run(func, self, evt)
+        evt._thr = launch(func, self, evt)
 
     def loop(self):
         "proces events until interrupted."
