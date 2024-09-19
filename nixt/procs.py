@@ -4,9 +4,19 @@
 "processors"
 
 
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 
 
-class Executor(ProcessPoolExecutor):
+class ProcessExecutor(ProcessPoolExecutor):
 
-     "Executor"
+     "Process"
+
+class ThreadExecutor(ThreadPoolExecutor):
+
+     "Thread"
+
+
+def run(func, *args):
+    with ThreadExecutor(6) as exe:
+        future = exe.submit(func, *args)
+        return future.result()

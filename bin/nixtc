@@ -33,7 +33,8 @@ class Console(Client):
     def callback(self, evt):
         "wait for result."
         Client.callback(self, evt)
-        evt._thr.join()
+        if evt._thr:
+            evt._thr.join()
 
     def poll(self):
         "poll console and create event."
