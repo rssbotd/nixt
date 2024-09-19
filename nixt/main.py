@@ -11,10 +11,10 @@ import pwd
 import time
 
 
-from .broker  import Broker
-from .persist import Workdir, ident
-from .object  import Default, Object, matchkey, values
-from .run     import Reactor, launch
+from .broker import Broker
+from .disk   import Workdir, ident
+from .object import Default, Object, matchkey, values
+from .run    import Reactor, launch
 
 
 STARTTIME = time.time()
