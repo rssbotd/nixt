@@ -12,7 +12,7 @@ import time
 
 
 from .persist import Workdir, ident
-from .object  import Default, Object
+from .object  import Default, Object, matchkey, values
 from .runtime import Reactor, launch
 
 
@@ -34,7 +34,7 @@ class Broker:
     def all(type=None):
         "return all objects."
         if type:
-            for key in matchkey(type):
+            for key in matchkey(Broker.objs, type):
                 yield Broker.get(key)
         return values(Broker.objs)
 
