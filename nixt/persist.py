@@ -13,7 +13,7 @@ import time
 import _thread
 
 
-from .object import Broker, Default, Object
+from .object import Default
 from .object import dump, fqn, load, match, matchkey, search
 from .object import update, values
 
@@ -72,13 +72,6 @@ def types():
 def whitelist(clz):
     "whitelist classes."
     Workdir.fqns.append(fqn(clz))
-
-
-"cache"
-
-class Cache(Broker):
-
-    "Cache"
 
 
 "utilities"
