@@ -9,10 +9,11 @@
 import getpass
 
 
-from nixt.main   import Config, forever, initer, pidfile
-from nixt.main   import modnames, privileges, wrap
-from nixt.mods   import face
-from nixt.run    import errors
+from nixt.main    import Config, forever, initer, pidfile
+from nixt.main    import modnames, privileges, wrap
+from nixt.modules import face
+from nixt.run     import errors
+
 
 Cfg = Config()
 Cfg.mod = ",".join(modnames(face))

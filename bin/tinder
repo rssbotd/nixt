@@ -18,11 +18,11 @@ import _thread
 sys.path.insert(0, os.getcwd())
 
 
-from nixt.errors  import *
+from nixt.disk    import *
 from nixt.main    import *
 from nixt.object  import *
 from nixt.modules import face
-from nixt.persist import *
+from nixt.run     import *
 
 
 Cfg         = Config()
