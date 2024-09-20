@@ -38,9 +38,9 @@ class Console(Client):
 
     def poll(self):
         "poll console and create event."
-        evt      = Event()
+        evt = Event()
         evt.orig = repr(self)
-        evt.txt  = input("> ")
+        evt.txt = input("> ")
         evt.type = "command"
         return evt
 
