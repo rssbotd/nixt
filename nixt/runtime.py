@@ -13,6 +13,34 @@ import types
 import _thread
 
 
+"broker"
+
+
+class Broker:
+
+    "Broker"
+
+    objs = {}
+
+    @staticmethod
+    def add(obj, key):
+        "add object."
+        Broker.objs[key] = obj
+
+    @staticmethod
+    def all(type=None):
+        "return all objects."
+        if type:
+            for key in [x for x in Broker.objs.keys() if type in x]:
+                yield Broker.get(key)
+        return Broker.objs.values()
+
+    @staticmethod
+    def get(orig):
+        "return object by matching repr."
+        return Broker.objs.get(orig)
+
+
 "errors"
 
 
@@ -251,4 +279,19 @@ def __dir__():
         'later'
         'launch',
         'named'
+    )
+# This file is placed in the Public Domain.
+
+
+"broker"
+
+
+from .object import Object, matchkey, values
+
+
+
+
+def __dir__():
+    return (
+        'Broker',
     )

@@ -12,7 +12,7 @@ import getpass
 from nixt.main    import Config, forever, initer, pidfile
 from nixt.main    import modnames, privileges, wrap
 from nixt.modules import face
-from nixt.run     import errors
+from nixt.runtime import errors
 
 
 Cfg = Config()
