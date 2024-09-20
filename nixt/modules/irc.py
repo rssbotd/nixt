@@ -16,7 +16,7 @@ import time
 import _thread
 
 
-from ..main    import Client, Commands, Event, Logging, command, debug
+from ..client  import Client, Commands, Event, Logging, command, debug
 from ..object  import Default, Object, edit, fmt, keys
 from ..persist import last, sync
 from ..runtime import Broker, later, launch

@@ -9,8 +9,8 @@
 import getpass
 
 
-from nixt.main    import Config, forever, initer, pidfile
-from nixt.main    import modnames, privileges, wrap
+from nixt.client  import Config, forever, initer, pidfile
+from nixt.client  import modnames, privileges, wrap
 from nixt.modules import face
 from nixt.runtime import errors
 

@@ -29,7 +29,7 @@ PACKAGE = [
     '__package__',
     '__file__',
     '__spec__',
-    'main',
+    'client',
     'modules',
     'object',
     'persist',

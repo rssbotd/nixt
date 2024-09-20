@@ -16,8 +16,8 @@ import time
 sys.path.insert(0, os.getcwd())
 
 
-from nixt.main    import Client, Config, Event, command, debug
-from nixt.main    import enable, forever, initer, modnames, parse, spl
+from nixt.client  import Client, Config, Event, command, debug
+from nixt.client  import enable, forever, initer, modnames, parse, spl
 from nixt.modules import face
 from nixt.object  import Default
 from nixt.runtime import errors, launch
