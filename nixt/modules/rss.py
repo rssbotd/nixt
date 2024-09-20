@@ -519,8 +519,8 @@ def imp(event):
             if not url.startswith("http"):
                 nrskip += 1
                 continue
-            res = list(find("rss", {'rss': url}, matching=True))
-            if res:
+            has = list(find("rss", {'rss': url}, matching=True))
+            if has:
                 nrskip += 1
                 continue
             feed = Rss()

@@ -29,11 +29,11 @@ PACKAGE = [
     '__package__',
     '__file__',
     '__spec__',
-    'disk',
     'main',
     'modules',
     'object',
-    'run'
+    'persist',
+    'runtime'
 ]
 
 

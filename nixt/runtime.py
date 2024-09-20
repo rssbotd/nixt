@@ -28,10 +28,10 @@ class Broker:
         Broker.objs[key] = obj
 
     @staticmethod
-    def all(type=None):
+    def all(kind=None):
         "return all objects."
-        if type:
-            for key in [x for x in Broker.objs.keys() if type in x]:
+        if kind is not None:
+            for key in [x for x in Broker.objs if kind in x]:
                 yield Broker.get(key)
         return Broker.objs.values()
 
@@ -51,7 +51,7 @@ class Errors:
     errors = []
 
 
-def format(exc):
+def fmat(exc):
     "format an exception"
     return traceback.format_exception(
                                type(exc),
@@ -70,7 +70,7 @@ def errors(outer):
 def later(exc):
     "add an exception"
     excp = exc.with_traceback(exc.__traceback__)
-    fmt = format(excp)
+    fmt = fmat(excp)
     if fmt not in Errors.errors:
         Errors.errors.append(fmt)
 
@@ -279,19 +279,4 @@ def __dir__():
         'later'
         'launch',
         'named'
-    )
-# This file is placed in the Public Domain.
-
-
-"broker"
-
-
-from .object import Object, matchkey, values
-
-
-
-
-def __dir__():
-    return (
-        'Broker',
     )

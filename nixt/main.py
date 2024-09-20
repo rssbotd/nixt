@@ -11,8 +11,8 @@ import pwd
 import time
 
 
-from .object  import Default, Object, matchkey, values
-from .persist import Workdir, ident
+from .object  import Default
+from .persist import Workdir
 from .runtime import Broker, Reactor, launch
 
 
